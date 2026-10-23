@@ -1,0 +1,1 @@
+This repository holds scripts, data, and presentations regarding the work "Analysis of Flaky Tests in Popular Go Projects".
