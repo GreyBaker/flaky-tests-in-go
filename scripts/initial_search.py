@@ -1,5 +1,4 @@
 from collections import Counter, deque
-from datetime import date, timedelta
 import csv
 import math
 import os
@@ -10,41 +9,33 @@ import time
 import requests
 
 REPOSITORIES = [
-    "golang/go", "kubernetes/kubernetes", "moby/moby", "containerd/containerd",
-    "prometheus/prometheus", "grafana/loki", "etcd-io/etcd",
-    "cockroachdb/cockroach", "pingcap/tidb", "hashicorp/terraform",
-    "hashicorp/consul", "hashicorp/vault", "syncthing/syncthing", "rclone/rclone",
-    "go-gitea/gitea", "gohugoio/hugo", "gin-gonic/gin", "grpc/grpc-go",
-    "quic-go/quic-go", "elastic/beats", "hashicorp/packer", "helm/helm",
-    "onsi/ginkgo", "prometheus/client_golang",
-]
+    "ollama/ollama", "golang/go", "kubernetes/kubernetes", "microsoft/TypeScript",
+    "fatedier/frp", "infiniflow/ragflow", "gohugoio/hugo", "syncthing/syncthing",
+    "gin-gonic/gin", "junegunn/fzf", "jesseduffield/lazygit", "netdata/netdata",
+    "caddyserver/caddy", "nektos/act", "moby/moby", "prometheus/prometheus", "traefik/traefik",
+    "usememos/memos", "pocketbase/pocketbase", "rclone/rclone", "go-gitea/gitea",
+    "etcd-io/etcd", "ethereum/go-ethereum", "quantumnous/new-api"
+] # none from gonic/gin, fatedier/frp, infiniflow/ragflow, nektos/act, pocketbase/pocketbase, 
 
 TITLE_EXPRESSION = "((flaky in:title) OR (flake in:title) OR (flaking in:title) OR (flakiness in:title)) AND (test in:title)"
-RESULTS_PER_CELL = 20                    
-HISTORY_SPLIT = "2023-01-01"              
-SINCE, AS_OF = "2013-01-01", "2026-10-22" 
-RUN_SEARCH = True                         
-MAX_REQUESTS = 150                 
-REQUEST_INTERVAL = 6.2                
+RESULTS_PER_CELL = 20
+SINCE, AS_OF = "2013-01-01", "2026-10-22" # this is fine, we still implicitly pull the RESULTS_PER_CELL most recent per category
+MAX_REQUESTS = 100 
+REQUEST_INTERVAL = 6.0 
 MAX_RATE_LIMIT_RETRIES = 3 
-MAX_RATE_LIMIT_WAIT = 60                 
+MAX_RATE_LIMIT_WAIT = 60 
 
 OUTPUT_FILE = Path(__file__).resolve().parent / "pre-candidates.csv"
 
 def make_searches():
-    start, end, split = date.fromisoformat(SINCE), date.fromisoformat(AS_OF), date.fromisoformat(HISTORY_SPLIT)
-    boundaries = [start] + ([split] if start < split <= end else [])
-    windows = [(first.isoformat(), last.isoformat()) for first, last in
-               zip(boundaries, [boundary - timedelta(days=1) for boundary in boundaries[1:]] + [end])][::-1]
     jobs = []
 
     for _, repo in enumerate(dict.fromkeys(REPOSITORIES)):
-        for first, last in windows:
-            for kind in ("issue", "pull_request"):
-                jobs.append({"repository": repo, "kind": kind, "scheme": "boolean_title", "text": TITLE_EXPRESSION, "start": first, "end": last,
-                            "advanced_search": True,
-                            "query": f"repo:{repo} {TITLE_EXPRESSION} type:{'pr' if kind == 'pull_request' else 'issue'} created:{first}..{last}",
-                            "page": 1, "total_count": 0, "unique_items": 0, "incomplete": False, "status": "pending"})
+        for kind in ("issue", "pull_request"):
+            jobs.append({"repository": repo, "kind": kind, "scheme": "boolean_title", "text": TITLE_EXPRESSION, "start": SINCE, "end": AS_OF,
+                        "advanced_search": True,
+                        "query": f"repo:{repo} {TITLE_EXPRESSION} type:{'pr' if kind == 'pull_request' else 'issue'} created:{SINCE}..{AS_OF}",
+                        "page": 1, "total_count": 0, "unique_items": 0, "incomplete": False, "status": "pending"})
     return jobs
 
 
@@ -79,10 +70,6 @@ def csv_cell(value):
 
 jobs = make_searches()
 planned_cells = {cell_key(job) for job in jobs}
-if not RUN_SEARCH:
-    for job in jobs[:4]:
-        print(job["query"])
-    exit()
 candidates, seen_by_cell = {}, {}
 request_count, rate_limit_retries = 0, 0
 queue = deque(jobs)
