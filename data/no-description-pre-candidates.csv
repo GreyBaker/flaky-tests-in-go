@@ -93,16 +93,7 @@ https://github.com/moby/moby/issues/53582, moby/moby,issue,Flaky test: TestImage
 https://github.com/moby/moby/pull/53579, moby/moby,pull_request,daemon/libnetwork: Skip flaky NetworkDB islands test,2026-09-03T21:19:48Z,2026-09-03T22:51:05Z,closed
 https://github.com/moby/moby/issues/53482, moby/moby,issue,Flaky test: TestNetworkDBGarbageCollection,2026-08-27T03:04:41Z,2026-09-02T21:08:34Z,closed
 https://github.com/moby/moby/pull/53210, moby/moby,pull_request,test: fix flaky TestDiff,2026-07-27T18:10:26Z,2026-09-03T08:50:53Z,closed
-https://github.com/moby/moby/pull/53071, moby/moby,pull_request,github: Add flaky test issue template,2026-07-14T13:25:22Z,2026-07-16T14:33:50Z,closed
-https://github.com/moby/moby/pull/52995, moby/moby,pull_request,"test-integration-flaky: Add /flaky-check=Test1,Test2 PR body directive",2026-07-01T18:47:43Z,2026-07-06T09:33:36Z,closed
-https://github.com/moby/moby/pull/52994, moby/moby,pull_request,test-integration-flaky: Bump stress multiplier to 10x10 (100 runs),2026-07-01T18:46:28Z,2026-07-03T07:33:12Z,closed
-https://github.com/moby/moby/pull/52947, moby/moby,pull_request,integration/system: Skip flaky disk usage prune test,2026-06-24T12:21:09Z,2026-06-24T12:53:56Z,closed
-https://github.com/moby/moby/pull/52881, moby/moby,pull_request,test-integration-flaky: Stress modified tests too,2026-06-15T17:00:53Z,2026-06-17T12:59:19Z,closed
-https://github.com/moby/moby/pull/52846, moby/moby,pull_request,docker-py: deselect flaky swarm `test_update_node` in graphdriver CI job,2026-06-12T12:51:12Z,2026-06-12T13:23:52Z,closed
-https://github.com/moby/moby/pull/52712, moby/moby,pull_request,Add GitHub Actions flaky test detector,2026-05-27T16:56:45Z,2026-06-05T11:43:06Z,closed
 https://github.com/moby/moby/pull/52589, moby/moby,pull_request,Fix flakiness with NRI integration tests,2026-05-08T22:17:03Z,2026-05-11T17:01:23Z,closed
-https://github.com/moby/moby/pull/52585, moby/moby,pull_request,gha: Fix test-integration-flaky,2026-05-08T18:43:09Z,2026-05-11T11:53:00Z,closed
-https://github.com/moby/moby/pull/50791, moby/moby,pull_request,Enhance Test Reliability by Introducing Flaky Test Handling and `gotestsum` Retry Options,2025-08-22T06:51:20Z,2026-03-11T05:53:19Z,closed
 https://github.com/moby/moby/pull/50196, moby/moby,pull_request,Fix flaky test TestDaemonRestartRestoreBridgeNetwork,2025-06-13T10:00:16Z,2025-06-13T11:21:20Z,closed
 https://github.com/moby/moby/pull/49938, moby/moby,pull_request,libnetwork/networkdb: fix most flaky loopback tests,2025-05-07T16:07:13Z,2025-05-08T11:33:45Z,closed
 https://github.com/moby/moby/pull/48417, moby/moby,pull_request,"Increase flaky test sleep, replace deprecated assert",2024-09-02T17:16:03Z,2024-10-22T11:06:52Z,closed
@@ -129,7 +120,6 @@ https://github.com/kubernetes/kubernetes/pull/140264, kubernetes/kubernetes,pull
 https://github.com/kubernetes/kubernetes/pull/140024, kubernetes/kubernetes,pull_request,Fix flaky etcd SIGKILL e2e test by using pkill -9 -x etcd,2026-06-25T19:32:05Z,2026-06-26T01:12:21Z,closed
 https://github.com/kubernetes/kubernetes/pull/139874, kubernetes/kubernetes,pull_request,Use 4-tuple to track connections to fix conntrack test flakes,2026-06-19T09:23:06Z,2026-07-02T19:40:17Z,closed
 https://github.com/kubernetes/kubernetes/pull/139714, kubernetes/kubernetes,pull_request,fix flaky hpa test by making per pod cpu load deterministic,2026-06-14T02:00:49Z,2026-06-29T17:50:18Z,closed
-https://github.com/junegunn/fzf/pull/1978, junegunn/fzf,pull_request,Make flaky tests reliable,2020-04-12T20:39:43Z,2020-04-17T17:34:39Z,closed
 https://github.com/jesseduffield/lazygit/pull/5756, jesseduffield/lazygit,pull_request,Fix a few flaky tests,2026-07-02T15:47:56Z,2026-07-02T15:50:50Z,closed
 https://github.com/jesseduffield/lazygit/pull/5743, jesseduffield/lazygit,pull_request,Fix flaky TestNewCmdTaskInstantStop test,2026-06-30T15:36:50Z,2026-06-30T15:40:06Z,closed
 https://github.com/jesseduffield/lazygit/pull/4432, jesseduffield/lazygit,pull_request,Fix flaky integration test,2025-03-28T14:45:57Z,2025-03-31T08:50:39Z,closed
