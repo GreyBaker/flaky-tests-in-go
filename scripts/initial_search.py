@@ -20,7 +20,7 @@ REPOSITORIES = [
 TITLE_EXPRESSION = "((flaky in:title) OR (flake in:title) OR (flaking in:title) OR (flakiness in:title)) AND (test in:title)"
 RESULTS_PER_CELL = 20
 SINCE, AS_OF = "2013-01-01", "2026-10-22" # this is fine, we still implicitly pull the RESULTS_PER_CELL most recent per category
-MAX_REQUESTS = 100 
+MAX_REQUESTS = 60 
 REQUEST_INTERVAL = 6.0 
 MAX_RATE_LIMIT_RETRIES = 3 
 MAX_RATE_LIMIT_WAIT = 60 
@@ -32,9 +32,9 @@ def make_searches():
 
     for _, repo in enumerate(dict.fromkeys(REPOSITORIES)):
         for kind in ("issue", "pull_request"):
-            jobs.append({"repository": repo, "kind": kind, "scheme": "boolean_title", "text": TITLE_EXPRESSION, "start": SINCE, "end": AS_OF,
+            jobs.append({"repository": repo, "kind": kind, "text": TITLE_EXPRESSION, "start": SINCE, "end": AS_OF,
                         "advanced_search": True,
-                        "query": f"repo:{repo} {TITLE_EXPRESSION} type:{'pr' if kind == 'pull_request' else 'issue'} created:{SINCE}..{AS_OF}",
+                        "query": f"repo:{repo} {TITLE_EXPRESSION} type:{'pr' if kind == 'pull_request' else 'issue'} created:{SINCE}..{AS_OF} state:closed",
                         "page": 1, "total_count": 0, "unique_items": 0, "incomplete": False, "status": "pending"})
     return jobs
 
@@ -129,7 +129,7 @@ try:
                 urls.add(url)
                 cell_urls.add(url)
                 record = candidates.setdefault(url, {"repository": job["repository"], "kind": job["kind"], "validation_status": "unreviewed", "item": item, "matches": []})
-                record["matches"].append({"query": job["query"], "scheme": job["scheme"], "page": job["page"]})
+                record["matches"].append({"query": job["query"], "page": job["page"]})
             job["unique_items"] = len(urls)
             if scope_errors:
                 job.update(status="error", error="Returned URLs outside the requested repository/type", unexpected_urls=scope_errors)
@@ -139,7 +139,7 @@ try:
                 job["status"] = "short_page"
             else:
                 job["status"] = "limited" if total > len(urls) else "complete"
-            print(f"[{request_count}/{MAX_REQUESTS}] {job['repository']} {job['kind']} {job['scheme']} page {job['page']}: {len(items)} found")
+            print(f"[{request_count}/{MAX_REQUESTS}] {job['repository']} {job['kind']} page {job['page']}: {len(items)} found")
         except (ValueError, KeyError, TypeError) as exc:
             job.update(status="error", error=str(exc))
             continue
@@ -157,9 +157,9 @@ finally:
     # save results
     with OUTPUT_FILE.open("w", encoding="utf-8-sig", newline="") as file:
             writer = csv.writer(file)
-            writer.writerow(["URL", "repository", "kind", "title", "created at", "closed at", "state", "description"])
+            writer.writerow(["URL", "repository", "title", "closed at", "description"])
             for url, record in candidates.items():
                 item = record["item"]
-                writer.writerow([csv_cell(value) for value in [url, record["repository"], record["kind"], item.get("title"),
-                                 item.get("created_at"), item.get("closed_at"), item.get("state"), item.get("body")]])
+                writer.writerow([csv_cell(value) for value in [url, record["repository"], item.get("title"),
+                                item.get("closed_at"), item.get("body")]])
     

@@ -7,6 +7,7 @@ golang/go,unverified,cmd/go: potential test flakes for TestScript/mod_invalid_ve
 golang/go,verified,testing/synctest: Repeated sync.WaitGroup.Add appears flaky under synctest,https://github.com/golang/go/commit/9ae38be3025fa71ec2967111e0a184f886876cb1 ,https://github.com/golang/go/issues/74386 ,2025-06-30T17:44:42Z
 golang/go,verified,cmd/go: GOFIPS140=v1.0.0 makes tests flaky,https://github.com/golang/go/commit/37f27fbecd422da9fefb8ae1cc601bc5b4fec44b ,https://github.com/golang/go/issues/71491 ,2025-01-31T16:51:37Z
 golang/go,verified,net/http: test flake in TestTransportIgnores408/h1,https://github.com/golang/go/commit/5bef938125d8604593ccacc59474db0b1403f6aa ,https://github.com/golang/go/issues/56118 ,2022-10-18T20:38:39Z
+golang/go,not yet started,misc/cgo/testsanitizers: flaky tests on ppc64le,https://github.com/golang/go/commit/d4ff25ac69c90bb0e6a92aff7650d0bf3d41d29e ,https://github.com/golang/go/issues/55266 https://github.com/golang/go/issues/54645 ,2022-09-21T02:23:18Z
 kubernetes/kubernetes,verified,[Flaking Test] ci-kubernetes-integration TestCorrectness/cacher_with_watch-delaying_etcd,https://github.com/kubernetes/kubernetes/pull/143083 ,https://github.com/kubernetes/kubernetes/issues/143080 ,2026-10-16T08:02:12Z
 kubernetes/kubernetes,verified,Remove flaky TestOpenAPIV2LazyBuild integration test,https://github.com/kubernetes/kubernetes/pull/143076 https://github.com/kubernetes/kubernetes/pull/143079 ,,2026-10-20T15:57:20Z
 kubernetes/kubernetes,instrumented,test/integration/events: fix flaky TestEventCompatibility,https://github.com/kubernetes/kubernetes/pull/142754 ,https://github.com/kubernetes/kubernetes/issues/141180 ,2026-10-07T07:24:39Z
@@ -35,26 +36,35 @@ moby/moby,instrumented,Fix flakiness with NRI integration tests,https://github.c
 moby/moby,verified,Fix flaky test TestDaemonRestartRestoreBridgeNetwork,https://github.com/moby/moby/pull/50196 ,https://github.com/moby/moby/issues/50168 ,2025-06-13T11:21:20Z
 moby/moby,verified,libnetwork/networkdb: fix most flaky loopback tests,https://github.com/moby/moby/pull/49938 ,https://github.com/moby/moby/issues/42484 ,2025-05-08T11:33:45Z
 moby/moby,unverified,"Increase flaky test sleep, replace deprecated assert",https://github.com/moby/moby/pull/48417 , https://github.com/moby/moby/issues/47590,2024-10-22T11:06:52Z
-prometheus/prometheus,not yet started,tsdb: fix flaky TestQuerierShouldNotFailIfOOOCompactionOccurs* tests,https://github.com/prometheus/prometheus/pull/19108 ,https://github.com/prometheus/prometheus/issues/17941 ,2026-07-07T06:38:57Z
-prometheus/prometheus,not yet started,Flaky test timeouts,https://github.com/prometheus/prometheus/pull/18632 ,https://github.com/prometheus/prometheus/issues/18630 ,2026-05-21T07:06:12Z
-prometheus/prometheus,not yet started,tsdb: Reduce test flakiness,https://github.com/prometheus/prometheus/pull/18577 ,,2026-04-27T08:19:15Z
-traefik/traefik,not yet started,Fix flakiness unit tests,https://github.com/traefik/traefik/pull/12611 ,,2026-01-29T10:42:06Z
-traefik/traefik,not yet started,Fix flaky tests on hrw,https://github.com/traefik/traefik/pull/12473 ,,2026-01-02T09:56:04Z
-traefik/traefik,not yet started,Fix flaky test,https://github.com/traefik/traefik/pull/10378 ,,2024-01-23T15:46:05Z
-traefik/traefik,not yet started,fix: OpenTelemetry metrics flaky test,https://github.com/traefik/traefik/pull/10370 ,,2024-01-22T15:38:06Z
-usememos/memos,not yet started,fix: resolve flaky migration tests and add stable upgrade test,https://github.com/usememos/memos/pull/5514 ,,2026-01-20T11:25:00Z
-rclone/rclone,not yet started,pool: fix flaky unreliability test,https://github.com/rclone/rclone/pull/8812 ,,2025-09-11T17:09:50Z
-rclone/rclone,not yet started,seafile: fix for flaky tests #6799,https://github.com/rclone/rclone/pull/6800 ,https://github.com/rclone/rclone/issues/6799 ,2023-03-02T20:03:25Z
-go-gitea/gitea,not yet started,test: fix flaky `TestPullView_CodeOwner` racing the push hook,https://github.com/go-gitea/gitea/pull/38751 ,,2026-08-02T21:31:00Z
-go-gitea/gitea,not yet started,test: fix flaky `issue-comment` close test,https://github.com/go-gitea/gitea/pull/37880 ,,2026-05-28T05:09:21Z
-go-gitea/gitea,not yet started,test: fix flaky `TestResourceIndex` and reduce its runtime,https://github.com/go-gitea/gitea/pull/37847 ,,2026-05-26T05:06:55Z
-go-gitea/gitea,not yet started,Flaky test `TestScheduleConcurrency`,https://github.com/go-gitea/gitea/pull/37461 ,https://github.com/go-gitea/gitea/issues/37446 ,2026-05-04T11:10:44Z
-etcd-io/etcd,not yet started,Flaky tests caused by EPERM (Operation not permitted),https://github.com/etcd-io/etcd/pull/22627 ,https://github.com/etcd-io/etcd/issues/22610 ,2026-10-23T05:10:17Z
-etcd-io/etcd,not yet started,tests/common: fix flaky TestKVGet by zeroing non-deterministic RaftTerm,https://github.com/etcd-io/etcd/pull/21628 ,,2026-04-17T11:12:00Z
-etcd-io/etcd,not yet started,Fix flaky test embed.TestEnableAuth which can fail due to port conflict,https://github.com/etcd-io/etcd/pull/21508 ,,2026-05-19T19:15:05Z
-etcd-io/etcd,not yet started,tests/integration: fix flaky testcase,https://github.com/etcd-io/etcd/pull/21503 ,,2026-03-20T09:21:40Z
-ethereum/go-ethereum,not yet started,node: fix flaky jwt too new auth test,https://github.com/ethereum/go-ethereum/pull/35889 ,,2026-10-08T07:05:56Z
-ethereum/go-ethereum,not yet started,eth/tracers: fix test flaking on 0xEF block hashes,https://github.com/ethereum/go-ethereum/pull/35629 ,,2026-09-02T01:03:56Z
-ethereum/go-ethereum,not yet started,rpc: fix flaky otel tests,https://github.com/ethereum/go-ethereum/pull/35101 ,,2026-06-02T17:50:58Z
-ethereum/go-ethereum,not yet started,core: fix TestProcessVerkle flaky test,https://github.com/ethereum/go-ethereum/pull/33971 ,,2026-03-06T18:03:06Z
-quantumnous/new-api,not yet started,test(web): stabilize flaky frontend suite timeouts and motion visibility races,https://github.com/QuantumNous/new-api/pull/7367 ,,2026-09-14T04:38:20Z
+prometheus/prometheus,instrumented,tsdb: fix flaky TestQuerierShouldNotFailIfOOOCompactionOccurs* tests,https://github.com/prometheus/prometheus/pull/19108 ,https://github.com/prometheus/prometheus/issues/17941 ,2026-07-07T06:38:57Z
+prometheus/prometheus,unverified,Flaky test timeouts,https://github.com/prometheus/prometheus/pull/18632 ,https://github.com/prometheus/prometheus/issues/18630 ,2026-05-21T07:06:12Z
+prometheus/prometheus,unverified,tsdb: Reduce test flakiness,https://github.com/prometheus/prometheus/pull/18577 ,,2026-04-27T08:19:15Z
+prometheus/prometheus,unverified,test: migrate TestDelayedCompaction to synctest to eliminate flakiness,https://github.com/prometheus/prometheus/pull/18406 ,https://github.com/prometheus/prometheus/issues/16450 ,2026-04-01T14:40:50Z
+prometheus/prometheus,unverified,cmd/prometheus: fix flaky TestQueryLog console test,https://github.com/prometheus/prometheus/pull/18396 ,,2026-03-31T06:25:13Z
+prometheus/prometheus,not yet started,discovery/file: Flaky `TestInvalidFileUpdate`  and `TestUpdateFileWithPartialWrites` tests,https://github.com/prometheus/prometheus/pull/19407 ,https://github.com/prometheus/prometheus/issues/18269 ,2026-08-15T08:04:46Z
+prometheus/prometheus,not yet started,[flaky tests] TestReshardPartialBatch,https://github.com/prometheus/prometheus/pull/18860 ,https://github.com/prometheus/prometheus/issues/18078 ,2026-06-09T11:17:49Z
+prometheus/prometheus,not yet started,tsdb: fix flaky TestWaitForPendingReadersInTimeRange tests,https://github.com/prometheus/prometheus/pull/17985 ,https://github.com/prometheus/prometheus/issues/17941 ,2026-02-01T15:52:26Z
+prometheus/prometheus,not yet started,test: fix flaky (panics) manager tests,https://github.com/prometheus/prometheus/pull/17962 ,https://github.com/prometheus/prometheus/issues/17941 ,2026-01-29T10:50:18Z
+prometheus/prometheus,not yet started,test: TestAsyncRuleEvaluation/asynchronous_evaluation_with_independent_and_dependent_rules is flaky,https://github.com/prometheus/prometheus/pull/17965 ,https://github.com/prometheus/prometheus/issues/17961 ,2026-02-16T09:30:47Z
+traefik/traefik,verified,Fix flakiness unit tests,https://github.com/traefik/traefik/pull/12611 ,,2026-01-29T10:42:06Z
+traefik/traefik,verified,Fix flaky tests on hrw,https://github.com/traefik/traefik/pull/12473 ,,2026-01-02T09:56:04Z
+traefik/traefik,verified,Fix flaky test,https://github.com/traefik/traefik/pull/10378 ,,2024-01-23T15:46:05Z
+traefik/traefik,verified,fix: OpenTelemetry metrics flaky test,https://github.com/traefik/traefik/pull/10370 ,,2024-01-22T15:38:06Z
+usememos/memos,instrumented,fix: resolve flaky migration tests and add stable upgrade test,https://github.com/usememos/memos/pull/5514 ,,2026-01-20T11:25:00Z
+rclone/rclone,not yet started,lib/transform: fix flaky date test at the end of a minute,https://github.com/rclone/rclone/pull/10144 ,,2026-10-29T18:33:49Z
+rclone/rclone,instrumented,pool: fix flaky unreliability test,https://github.com/rclone/rclone/pull/8812 ,,2025-09-11T17:09:50Z
+rclone/rclone,verified,seafile: fix for flaky tests #6799,https://github.com/rclone/rclone/pull/6800 ,https://github.com/rclone/rclone/issues/6799 ,2023-03-02T20:03:25Z
+go-gitea/gitea,instrumented,test: fix flaky `TestPullView_CodeOwner` racing the push hook,https://github.com/go-gitea/gitea/pull/38751 ,,2026-08-02T21:31:00Z
+go-gitea/gitea,instrumented,test: fix flaky `issue-comment` close test,https://github.com/go-gitea/gitea/pull/37880 ,,2026-05-28T05:09:21Z
+go-gitea/gitea,instrumented,test: fix flaky `TestResourceIndex` and reduce its runtime,https://github.com/go-gitea/gitea/pull/37847 ,,2026-05-26T05:06:55Z
+go-gitea/gitea,instrumented,Flaky test `TestScheduleConcurrency`,https://github.com/go-gitea/gitea/pull/37461 ,https://github.com/go-gitea/gitea/issues/37446 ,2026-05-04T11:10:44Z
+etcd-io/etcd,instrumented,Flaky tests caused by EPERM (Operation not permitted),https://github.com/etcd-io/etcd/pull/22627 ,https://github.com/etcd-io/etcd/issues/22610 ,2026-10-23T05:10:17Z
+etcd-io/etcd,instrumented,tests/common: fix flaky TestKVGet by zeroing non-deterministic RaftTerm,https://github.com/etcd-io/etcd/pull/21628 ,,2026-04-17T11:12:00Z
+etcd-io/etcd,verified,Fix flaky test embed.TestEnableAuth which can fail due to port conflict,https://github.com/etcd-io/etcd/pull/21508 ,,2026-05-19T19:15:05Z
+etcd-io/etcd,unverified,tests/integration: fix flaky testcase,https://github.com/etcd-io/etcd/pull/21503 ,,2026-03-20T09:21:40Z
+etcd-io/etcd,verified,Flaky test (data race) `TestEmbedEtcdStopDuringBootstrapping`,https://github.com/etcd-io/etcd/pull/21327 ,https://github.com/etcd-io/etcd/issues/21298 ,2026-02-24T12:04:30Z
+ethereum/go-ethereum,verified,node: fix flaky jwt too new auth test,https://github.com/ethereum/go-ethereum/pull/35889 ,,2026-10-08T07:05:56Z
+ethereum/go-ethereum,verified,eth/tracers: fix test flaking on 0xEF block hashes,https://github.com/ethereum/go-ethereum/pull/35629 ,,2026-09-02T01:03:56Z
+ethereum/go-ethereum,verified,rpc: fix flaky otel tests,https://github.com/ethereum/go-ethereum/pull/35101 ,,2026-06-02T17:50:58Z
+ethereum/go-ethereum,underway,core: fix TestProcessVerkle flaky test,https://github.com/ethereum/go-ethereum/pull/33971 ,,2026-03-06T18:03:06Z
+quantumnous/new-api,verified,test(web): stabilize flaky frontend suite timeouts and motion visibility races,https://github.com/QuantumNous/new-api/pull/7367 ,,2026-09-14T04:38:20Z
