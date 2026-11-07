@@ -1,0 +1,67 @@
+repository,title,verification,method,before,after,notes
+ollama/ollama,tests: fix metadata deletion test flake,verified,Original one-context repeats,50 pass / 100 observer failures,150 pass,
+ollama/ollama,olmo3: fix flaky test,verified,Original complete table,84 pass / 16 map-order failures,100 pass,
+ollama/ollama,tests: tighten up a few flaky tests,unverified,CPU inference,Context: 9 pass; concurrent: 3 workloads pass,Same counts pass,
+ollama/ollama,Fix Embed Test Flakes,unverified,CPU AVX2 inference,Each: 0 pass / 150 exact-float failures,150 pass each,
+ollama/ollama,Fix generate test flakyness,unverified,Original complete unit tables,Each target: 300 pass; separate policy: 3000 pass,Same policies clean,
+golang/go,cmd/go: potential test flakes for TestScript/mod_invalid_version,unverified,WAN/peer diagnostics,Natural: clean; shaped: unrelated deadlines,Local-fixture model: 2 pass,
+golang/go,testing/synctest: Repeated sync.WaitGroup.Add appears flaky under synctest,verified,Identical upstream-derived fixture,7 clean batches; 2 matching panic batches,100000 pass,
+golang/go,cmd/go: GOFIPS140=v1.0.0 makes tests flaky,verified,Original concurrent FIPS packages,TestInverse: 4 pass / 16 fail,20 pass each,
+golang/go,net/http: test flake in TestTransportIgnores408/h1,verified,Original peer; short; shuffle42,984 pass / 1016 fail,2000 pass,
+golang/go,misc/cgo/testsanitizers: flaky tests on ppc64le,system dependency,,N/A,N/A,
+golang/go,runtime: mayMoreStackPreempt tests flaky after stack frame CLs,verified,Upstream mayMoreStackPreempt mode,52 pass / 98 SIGSEGV failures,150 pass,
+kubernetes/kubernetes,[Flaking Test] ci-kubernetes-integration TestCorrectness/cacher_with_watch-delaying_etcd,verified,Original one-CPU workload,5 pass / 1 match; 4 unrelated failures,9 pass / 1 unrelated failure,
+kubernetes/kubernetes,Remove flaky TestOpenAPIV2LazyBuild integration test,verified,Original selected-peer workload,19 pass / 1 heap assertion fail,Replacement: 20 pass,
+kubernetes/kubernetes,test/integration/events: fix flaky TestEventCompatibility,instrumented - weak,IPAddress watch-delivery pause,Stock: clean; 125ms: 10 fail,125ms: 10 pass,Real extra warning; instrumented launcher missing.
+kubernetes/kubernetes,[Flaking Test] [sig-scheduling] TestCPGTopologyAwareSchedulingWorkloadAwarePreemption/parent_CPG_and_child_PGs_both_have_topology_constraints,unverified,Resource/network/peer/hook ladder,Original/zero/250ms/500ms: 10 pass each,Initial controls clean,
+kubernetes/kubernetes,Fix binder_test flake by waiting for watches to start,instrumented - weak,PV-watch registration pause,Stock: clean; 125ms: 10 fail,125ms: 10 pass,Historical signature matched; instrumented launcher missing.
+kubernetes/kubernetes,Fix flaky etcd SIGKILL e2e test by using pkill -9 -x etcd,verified,Private Kind; real health probes,1 pass / 1 matching fail; 3 excluded,2 pass; 3 excluded,
+microsoft/TypeScript,Fix content mapper flaky test,verified,Native Windows original Go test,24/76; confirmation: 36/64 pass/fail,Fix-only: 500 pass; full repair: 500 pass,
+gohugoio/hugo,commands: Skip flaky test on Windows,unverified,Native Windows controls,4 pass; 1 unrelated deadline,Not run; Windows skip,
+gohugoio/hugo,server: Fix flaky TestServerPathEncodingIssues tests,verified,Original; isolated child confirmation,Isolated child: 3 pass / 7 fail,Isolated child: 10 pass,
+gohugoio/hugo,Fix flaky integration tests on CI,unverified,Source review; endpoint probes,No docs-build trials,Not run,
+syncthing/syncthing,lib/model: Fix flaky test and add some scanning debug,verified,Original pinned-contention workload,99 pass / 1 final-count fail,100 pass,
+syncthing/syncthing,lib/model: Fix test flakyness regression (ref #5592),unverified,Original repeats; real mtime probes,5000 pass per pull target; other policies clean,Initial controls clean,
+jesseduffield/lazygit,Fix a few flaky tests (diff_commits and diff),verified,Original no-retry CLI; PTY,6/1; 13/1 pass/fail,50 pass each,
+jesseduffield/lazygit,Fix flaky TestNewCmdTaskInstantStop test,verified,Original repeats,99 pass / 1 fail,100 pass,
+jesseduffield/lazygit,Fix flaky integration test,verified,Original no-retry CLI; PTY,1 pass / 1 matching fail,23 pass before interruption,
+jesseduffield/lazygit,fix flaky tests,verified,Original no-retry CLI; PTY,13 pass / 1 map-write crash,30 pass,
+netdata/netdata,test(scripts.d): fix dynamic check lifecycle flakes,instrumented - strong,8.5ms pre-Reset-lock pause,Hook: 5/5; confirmation: 7/3 pass/fail,Hook: 10 pass,Stock clean; polling/reset-order repair bundled.
+netdata/netdata,test(go.d/jobmgr): fix flaky runtime cleanup panic quarantine test,instrumented - strong,1ms candidate-release pause,Stock: clean; hook: 4 pass / 6 fail,Hook: 10 pass,Different attempt remains active; not torn census.
+netdata/netdata,test(go.d): fix staged secret mutation quarantine test flake,verified,Original pinned-CPU control,399 pass / 1 nil-handle fail,400 pass,
+caddyserver/caddy,Improve flaky test,verified,Original repeats,98 pass / 2 fail,100 pass,
+moby/moby,Flaky test: TestImagesEnsureOnlyHeadsImagesShown can panic,unverified,Private DinD; tracing/upload-delay ladder,Original and 1/10/50ms policies clean,API replacement: 20 pass,
+moby/moby,Flaky test: TestNetworkDBGarbageCollection,verified,Fixed external process pause,Plain: clean; pause: 1 pass / 5 fail,Pause: 6 pass,
+moby/moby,test: fix flaky TestDiff,unverified,Private DinD; storage-driver controls,overlay2: 100 pass; vfs: 20 pass,overlay2: 20 pass,
+moby/moby,Fix flakiness with NRI integration tests,instrumented - weak,100ms real commit pause; private DinD,Stock: clean; hook: 5 fail,Hook: 5 pass,Reload only; privileged lab launcher missing.
+moby/moby,Fix flaky test TestDaemonRestartRestoreBridgeNetwork,verified,Private DinD; original target,1 pass / 1 fail,5 pass,
+moby/moby,libnetwork/networkdb: fix most flaky loopback tests,verified,Original Linux loopback target,4 pass / 1 fail,5 pass,
+moby/moby,"Increase flaky test sleep, replace deprecated assert",unverified,Linux quota; native Windows controls,All separate policies clean,Not triggered,
+prometheus/prometheus,tsdb: fix flaky TestQuerierShouldNotFailIfOOOCompactionOccurs* tests,instrumented - strong,Alternating 1500ms post-reader cleanup pause,Stock: clean; hook: 2 pass / 2 fail,Hook: 4 pass,Iterator only; interrupted querier result excluded.
+prometheus/prometheus,Flaky test timeouts,unverified,Full-package/race/peer/compiler contrasts,Target controls clean; Go1.26.2 package passes,Not triggered,
+prometheus/prometheus,tsdb: Reduce test flakiness,unverified,Focused/full-package/compiler contrasts,Target controls clean; Go1.26.2 package passes,Not triggered,
+prometheus/prometheus,test: migrate TestDelayedCompaction to synctest to eliminate flakiness,instrumented - strong,Alternating 1250ms write latency,Stock: clean; hook: 2 pass / 2 fail,Hook: 4 pass,No-delay bound only; synctest migration unproved.
+prometheus/prometheus,cmd/prometheus: fix flaky TestQueryLog console test,instrumented - strong,Alternating true-readiness delay,Stock: clean; hook: 2 table pass / 2 fail,Hook: 4 table pass,Real HTTP503; template-path change unproved.
+prometheus/prometheus,discovery/file: Flaky `TestInvalidFileUpdate`  and `TestUpdateFileWithPartialWrites` tests,unverified,Real rename-away/refresh model,Stock: clean; hook: 2 pass / 2 fail each,Hook: 4 pass each,
+traefik/traefik,Fix flakiness unit tests,verified,Original informer/client fixtures,28 pass / 2 order failures,30 pass,
+traefik/traefik,Fix flaky tests on hrw,verified,Original random distributions,298/2; 289/11; 259/41 pass/fail,HRW: 1200 pass,
+traefik/traefik,Fix flaky test,verified,Original repeats,213 pass / 87 count failures,300 pass,
+traefik/traefik,fix: OpenTelemetry metrics flaky test,verified,Original target-only repeats,9 pass / 1 payload failure,29 pass / 1 payload failure,
+usememos/memos,fix: resolve flaky migration tests and add stable upgrade test,unverified,Real container ownership contrast,Root: pass; UID1000: readonly failure,UID1000: 3 pass,
+rclone/rclone,lib/transform: fix flaky date test at the end of a minute,system dependency,,N/A,N/A,
+rclone/rclone,pool: fix flaky unreliability test,unverified,Seed278; 100ms accelerated aging,Stock/60s replay: clean; 100ms: 2 fail,100ms: 3 pass,
+rclone/rclone,seafile: fix for flaky tests #6799,verified,Original race-build repeats,1000 pass; next process: 1 pass then matching panic,Replacement: 30 pass,
+go-gitea/gitea,test: fix flaky `TestPullView_CodeOwner` racing the push hook,instrumented - strong,1s post-push return pause,Stock: 10 pass; hook: 3 fail,Hook: 3 pass,First-PR child only; persisted-state test repair.
+go-gitea/gitea,test: fix flaky `issue-comment` close test,instrumented - strong,1s real frontend-request gate,Stock: clean; hook: 3 fail,Hook: 3 pass,Native-submit JSON; routing disables cache.
+go-gitea/gitea,test: fix flaky `TestResourceIndex` and reduce its runtime,instrumented - strong,6s SQLite writer hook,Stock: clean; hook: 3 fail,Hook: 6 pass across confirmations,Added writer; timeout and writer-count repair bundled.
+go-gitea/gitea,Flaky test `TestScheduleConcurrency`,instrumented - weak,Extra real resolver call,Stock: 10 pass; hook: 3 fail,Hook: 3 pass,Added synchronous call; stock-path equivalence unproved.
+etcd-io/etcd,Flaky tests caused by EPERM (Operation not permitted),instrumented - strong,PTY stack-work hook,Stock: 9 pass; hook: 3 EPERM failures,Hook: 3 pass,Snapshot child only; exact kernel path unproved.
+etcd-io/etcd,tests/common: fix flaky TestKVGet by zeroing non-deterministic RaftTerm,instrumented - weak,Real MoveLeader hook,Stock: clean; hook: 9 fail,Hook: 9 pass,Added cluster action; stock reachability unproved.
+etcd-io/etcd,Fix flaky test embed.TestEnableAuth which can fail due to port conflict,verified,Paired original processes,5 pass / 5 bind failures,10 pass,
+etcd-io/etcd,tests/integration: fix flaky testcase,unverified,Direct/race/proxy controls; auth hook,Direct/race: clean; proxy: 10 fail; hook: clean,Proxy: 10 pass,
+etcd-io/etcd,Flaky test (data race) `TestEmbedEtcdStopDuringBootstrapping`,verified,Historical gofail/race; existing predecessor,8 pass / 2 races,10 pass,
+ethereum/go-ethereum,node: fix flaky jwt too new auth test,verified,Original complete tables,2997 pass / 3 fail,3000 pass,
+ethereum/go-ethereum,eth/tracers: fix test flaking on 0xEF block hashes,verified,Original random repeats,999 pass / 1 fail,1000 pass,
+ethereum/go-ethereum,rpc: fix flaky otel tests,verified,Original parallel targets,294/6; 295/5; 295/5 pass/fail,300 pass each,
+ethereum/go-ethereum,core: fix TestProcessVerkle flaky test,instrumented - strong,1ms real flush-worker pause,Stock: clean; hook: 10 panics,Hook: 10 pass,Persistence race; historical panic payload unavailable.
+quantumnous/new-api,test(web): stabilize flaky frontend suite timeouts and motion visibility races,verified,Original four-file Vitest workload,Viewer: 2 pass / 2 fail,5 processes: 123/123 pass,
