@@ -1,3 +1,5 @@
+# An Analysis of Flaky Tests in Popular Go Projects
+
 This repository holds scripts, data, and presentations regarding the work "An Analysis of Flaky Tests in Popular Go Projects".
 
 ## Building the Database
@@ -10,4 +12,9 @@ For both of those, interpretation follows that URL refers to the GitHub URL sour
 
 `candidates.csv` instead carries the repository and title as primary, then offers potentially both of issue URL and code URL, then the closed at time. Manual modification is then made to separate code and issue URLs, to combine items, to carry discovery state, and to reorder into repository primacy order. 
 
+## Database Processing
+
+Information and scripts pertaining to replications of flakiness can be found in `replication/` 
+
+Categorization findings can be seen summarized in `categorization.csv`.
 

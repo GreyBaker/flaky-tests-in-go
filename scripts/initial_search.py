@@ -8,6 +8,7 @@ import time
 
 import requests
 
+# REPOSITORIES = ["golang/go"]
 REPOSITORIES = [
     "ollama/ollama", "golang/go", "kubernetes/kubernetes", "microsoft/TypeScript",
     "fatedier/frp", "infiniflow/ragflow", "gohugoio/hugo", "syncthing/syncthing",
@@ -18,7 +19,7 @@ REPOSITORIES = [
 ] # none from gonic/gin, fatedier/frp, infiniflow/ragflow, nektos/act, pocketbase/pocketbase, 
 
 TITLE_EXPRESSION = "((flaky in:title) OR (flake in:title) OR (flaking in:title) OR (flakiness in:title)) AND (test in:title)"
-RESULTS_PER_CELL = 20
+RESULTS_PER_CELL = 50
 SINCE, AS_OF = "2013-01-01", "2026-10-22" # this is fine, we still implicitly pull the RESULTS_PER_CELL most recent per category
 MAX_REQUESTS = 60 
 REQUEST_INTERVAL = 6.0 

@@ -20,6 +20,7 @@ e.g.
 
 also added a basic sanity check for /api/embeddings, which had no test before"
 https://github.com/ollama/ollama/pull/5804,ollama/ollama,Fix generate test flakyness,2024-07-20T02:11:25Z,
+URL,repository,title,closed at,description
 https://github.com/golang/go/issues/79981,golang/go,"cmd/go: version blocks for 18m, causing gopls test flake",2026-08-07T18:45:05Z,"```
 #!watchflakes
 default <- pkg ~ `golang.org/x/tools/gopls` && output ~ `syscall, .* minutes` && output ~ `GoVersion` && output ~ `context deadline exceeded`
@@ -631,6 +632,1396 @@ Bug automatically created to track these flakes.
 
 — watchflakes
 "
+https://github.com/golang/go/issues/55257,golang/go,cmd/compile: internal compiler errors in test flakes,2023-07-25T14:40:09Z,"```
+#!watchflakes
+default <- `: internal compiler error:` && date < ""2023-07-25""
+```
+
+This issue collects build dashboard flakes due to internal compiler errors."
+https://github.com/golang/go/issues/55253,golang/go,"x/build/cmd/watchflakes, x/net/http2: flaky test timeout",2026-10-29T18:11:38Z,"```
+#!watchflakes
+post <- pkg == ""golang.org/x/net/http2"" && test == """" && `panic: test timed out`
+```
+
+Bug automatically created to track these flakes.
+
+— watchflakes
+"
+https://github.com/golang/go/issues/55252,golang/go,"x/build/cmd/watchflakes, cmd/go: flaky test timeout",2026-10-09T20:26:47Z,"```
+#!watchflakes
+post <- pkg == ""cmd/go"" && test == """" && `panic: test timed out`
+```
+
+Bug automatically created to track these flakes.
+
+— watchflakes
+"
+https://github.com/golang/go/issues/55251,golang/go,x/build/internal/relui: flaky test timeout,2022-09-20T12:33:47Z,"```
+#!watchflakes
+post <- pkg == ""golang.org/x/build/internal/relui"" && test == """" && `panic: test timed out`
+```
+
+Bug automatically created to track these flakes.
+
+— watchflakes
+"
+https://github.com/golang/go/issues/55249,golang/go,x/tools/internal/lsp/cmd: flaky test timeout,2022-09-20T15:55:46Z,"```
+#!watchflakes
+post <- pkg == ""golang.org/x/tools/internal/lsp/cmd"" && test == """" && `panic: test timed out`
+```
+
+Bug automatically created to track these flakes.
+
+— watchflakes
+"
+https://github.com/golang/go/issues/55247,golang/go,x/tools/gopls/internal/regtest/completion: flaky test timeout,2022-09-20T15:55:01Z,"```
+#!watchflakes
+post <- pkg == ""golang.org/x/tools/gopls/internal/regtest/completion"" && test == """" && `panic: test timed out`
+```
+
+Bug automatically created to track these flakes.
+
+— watchflakes
+"
+https://github.com/golang/go/issues/55246,golang/go,net/http: flaky test timeout,2024-05-15T22:29:17Z,"```
+#!watchflakes
+post <- pkg == ""net/http"" && test == """" && `panic: test timed out`
+```
+
+Bug automatically created to track these flakes.
+
+— watchflakes
+"
+https://github.com/golang/go/issues/55245,golang/go,crypto/tls: flaky test timeout,2022-09-20T12:32:29Z,"```
+#!watchflakes
+post <- pkg == ""crypto/tls"" && test == """" && `panic: test timed out`
+```
+
+Bug automatically created to track these flakes.
+
+— watchflakes
+"
+https://github.com/golang/go/issues/55244,golang/go,x/tools/gopls/internal/regtest/diagnostics: flaky test timeout,2022-09-20T15:55:13Z,"```
+#!watchflakes
+post <- pkg == ""golang.org/x/tools/gopls/internal/regtest/diagnostics"" && test == """" && `panic: test timed out`
+```
+
+Bug automatically created to track these flakes.
+
+— watchflakes
+"
+https://github.com/golang/go/issues/54885,golang/go,runtime: mayMoreStackPreempt tests flaky after stack frame CLs,2022-09-06T16:08:32Z,"`greplogs --dashboard -md -l -e 'SignalInVDSO'`
+
+[2022-09-05T21:39:28-4c1ca42/linux-386-longtest](https://build.golang.org/log/223673cfa24268ed01b8c4f467f3c5496953a41c)
+[2022-09-05T08:28:34-bd5595d/linux-386-longtest](https://build.golang.org/log/3920217184f02a19abd0bb80ad17696dee0684ce)
+[2022-09-05T08:08:24-af7f417/linux-386-longtest](https://build.golang.org/log/7ef94db13f10645fca7c9e9113d76f0d381c824c)
+[2022-09-05T08:08:18-4ad55cd/linux-386-longtest](https://build.golang.org/log/d8ef3808241bd7add1cbcc590066ca21829ccf6e)
+[2022-09-05T08:07:47-357b922/linux-386-longtest](https://build.golang.org/log/ee0bf370cc054c33c7445df13a9f99b7fe580cd2)
+[2022-09-05T07:17:56-4e7e7ae/linux-386-longtest](https://build.golang.org/log/c34d1e63bc1f8d3c36e51777813bcce1cc8ac95b)
+[2022-09-05T07:14:08-3fbcf05/linux-386-longtest](https://build.golang.org/log/9d07ddf12ccc5c9880b691e63ffb78db85a90369)
+[2022-09-04T04:17:04-535fe2b/linux-386-longtest](https://build.golang.org/log/0ee68885989d554fe8013c21870b9490b3682ca9)
+[2022-09-03T18:21:45-a0f0582/linux-386-longtest](https://build.golang.org/log/8256dfbc548facaaefaba5433c9bdf8c04b6fc44)
+[2022-09-03T15:45:36-f798dc6/linux-386-longtest](https://build.golang.org/log/51e88d345d457a4251ec8e38aabcc01e0e4ceee8)
+[2022-09-02T19:22:26-0fda8b1/linux-386-longtest](https://build.golang.org/log/c16de76490d3c7b5121c72089010926f7e3f5ccb)
+[2022-09-02T19:09:03-55ca6a2/linux-386-longtest](https://build.golang.org/log/8770366c112fd5c78cc44a3ec9b3da0438db34da)
+[2022-09-02T19:08:56-b91e373/linux-386-longtest](https://build.golang.org/log/ae64ea2dab7a9a3941b3fa610c942328bca41b1f)
+[2022-09-02T19:08:53-dbf442b/linux-386-longtest](https://build.golang.org/log/35640ead268e7600c4c2d45eff20bcf836a4eabd)
+
+```
+##### maymorestack=mayMoreStackPreempt
+--- FAIL: TestVDSO (0.43s)
+    testenv.go:468: [/workdir/tmp/go-build2185756284/testprog.exe SignalInVDSO] exit status: signal: segmentation fault (core dumped)
+    crash_test.go:144: output:
+        
+        
+        wanted:
+        success
+FAIL
+FAIL	runtime	95.198s
+FAIL
+```
+
+The first failure occurred on https://go.dev/cl/424514. It is flaky, so it may not be precisely that CL at fault, but it seems likely that one of the stack frame CLs is to blame."
+https://github.com/golang/go/issues/54654,golang/go,x/build/internal/relui/sign: fix flaky TestUpdateSigningStatusError/non-existant_signing_request test,2024-05-20T00:04:27Z,"The TestUpdateSigningStatusError/non-existant_signing_request is flaky with the following error:
+
+```
+panic: Log in goroutine after TestUpdateSigningStatusError/non-existant_signing_request has completed: client.stream.Recv() = nil, rpc error: code = Unavailable desc = error reading from server: EOF; want no error
+
+goroutine 46 [running]:
+testing.(*common).logDepth(0x1400008b860, {0x140004280e0, 0x6e}, 0x3)
+	/tmp/buildlet/go/src/testing/testing.go:887 +0x3d8
+testing.(*common).log(...)
+	/tmp/buildlet/go/src/testing/testing.go:869
+testing.(*common).Logf(0x1400008b860, {0x104e8775a?, 0x1400009d2c0?}, {0x14000515fb0?, 0x0?, 0x2?})
+	/tmp/buildlet/go/src/testing/testing.go:920 +0x5c
+golang.org/x/build/internal/relui/sign.fakeSigningServerClient.func1()
+	/tmp/buildlet/gopath/src/golang.org/x/build/internal/relui/sign/server_test.go:105 +0x158
+created by golang.org/x/build/internal/relui/sign.fakeSigningServerClient
+	/tmp/buildlet/gopath/src/golang.org/x/build/internal/relui/sign/server_test.go:94 +0x158
+FAIL	golang.org/x/build/internal/relui/sign	0.170s
+```
+
+Observed in: https://build.golang.org/log/85793ca6714b307dbbd1a44772ec99a26d40f71f
+
+@golang/release "
+https://github.com/golang/go/issues/53972,golang/go,x/build/internal/relui: buildrelease_test fails with flake on uuid length,2022-09-27T18:46:06Z,"### What did you do?
+
+<!--
+If possible, provide a recipe for reproducing the error.
+A complete runnable program is good.
+A link on go.dev/play is best.
+-->
+
+
+
+### What did you expect to see?
+
+```
+ok	golang.org/x/build/internal/relui
+```
+
+### What did you see instead?
+
+<details>
+
+```
+...
+        buildrelease_test.go:769: task windows-386: Build binary archive: LOG: Creating buildlet windows-386-2008.
+        buildrelease_test.go:769: task windows-386: Build binary archive: LOG: Buildlet ready.
+        buildrelease_test.go:769: task windows-arm64: Build binary archive: LOG: Pushing source to buildlet.
+        buildrelease_test.go:769: task windows-386: Build binary archive: LOG: Pushing source to buildlet.
+        buildrelease_test.go:769: task linux-ppc64le: Build binary archive: LOG: Creating buildlet linux-ppc64le-buildlet.
+        buildrelease_test.go:769: task linux-ppc64le: Build binary archive: LOG: Buildlet ready.
+        buildrelease_test.go:769: task windows-arm64: Build binary archive: LOG: Installing go1.4.
+        buildrelease_test.go:769: task linux-386: Build binary archive: LOG: Creating buildlet linux-386-buster.
+        buildrelease_test.go:769: task linux-386: Build binary archive: LOG: Buildlet ready.
+        buildrelease_test.go:769: task linux-386: Build binary archive: LOG: Pushing source to buildlet.
+        buildrelease_test.go:769: task windows-amd64: Build binary archive: LOG: Building (make.bash only).
+        buildrelease_test.go:769: task linux-arm64: Build binary archive: LOG: Creating buildlet linux-arm64-aws.
+        buildrelease_test.go:769: task linux-arm64: Build binary archive: LOG: Buildlet ready.
+        buildrelease_test.go:769: task linux-arm64: Build binary archive: LOG: Pushing source to buildlet.
+        buildrelease_test.go:769: task linux-386: Build binary archive: LOG: Building (make.bash only).
+        buildrelease_test.go:769: task freebsd-amd64: Build binary archive: LOG: Creating buildlet freebsd-amd64-12_3.
+        buildrelease_test.go:769: task freebsd-amd64: Build binary archive: LOG: Buildlet ready.
+        buildrelease_test.go:769: task freebsd-amd64: Build binary archive: LOG: Pushing source to buildlet.
+        buildrelease_test.go:769: task freebsd-386: Build binary archive: LOG: Creating buildlet freebsd-386-12_3.
+        buildrelease_test.go:769: task freebsd-386: Build binary archive: LOG: Buildlet ready.
+        buildrelease_test.go:769: task freebsd-386: Build binary archive: LOG: Pushing source to buildlet.
+        buildrelease_test.go:769: task linux-s390x: Build binary archive: LOG: Creating buildlet linux-s390x-crosscompile.
+        buildrelease_test.go:769: task linux-s390x: Build binary archive: LOG: Buildlet ready.
+        buildrelease_test.go:769: task linux-s390x: Build binary archive: LOG: Pushing source to buildlet.
+        buildrelease_test.go:769: task linux-amd64: Build binary archive: LOG: Creating buildlet linux-amd64-buster.
+        buildrelease_test.go:769: task linux-amd64: Build binary archive: LOG: Buildlet ready.
+        buildrelease_test.go:769: task linux-amd64: Build binary archive: LOG: Pushing source to buildlet.
+        buildrelease_test.go:769: task darwin-arm64: Build binary archive: LOG: Creating buildlet darwin-arm64-12.
+        buildrelease_test.go:769: task darwin-arm64: Build binary archive: LOG: Buildlet ready.
+        buildrelease_test.go:769: task darwin-arm64: Build binary archive: LOG: Pushing source to buildlet.
+        buildrelease_test.go:769: task linux-ppc64le: Build binary archive: LOG: Pushing source to buildlet.
+        buildrelease_test.go:769: task windows-386: Build binary archive: LOG: Installing go1.4.
+        buildrelease_test.go:769: task freebsd-amd64: Build binary archive: LOG: Installing go1.4.
+        buildrelease_test.go:769: task linux-ppc64le: Build binary archive: LOG: Building (make.bash only).
+        buildrelease_test.go:769: task freebsd-386: Build binary archive: LOG: Installing go1.4.
+        buildrelease_test.go:769: task windows-arm64: Build binary archive: LOG: Building (make.bash only).
+        buildrelease_test.go:769: task linux-arm64: Build binary archive: LOG: Building (make.bash only).
+        buildrelease_test.go:769: task darwin-arm64: Build binary archive: LOG: Building (make.bash only).
+        buildrelease_test.go:769: task linux-amd64: Build binary archive: LOG: Building (make.bash only).
+        buildrelease_test.go:769: task windows-386: Build binary archive: LOG: Building (make.bash only).
+        buildrelease_test.go:769: task linux-s390x: Build binary archive: LOG: Building (make.bash only).
+        buildrelease_test.go:769: task freebsd-386: Build binary archive: LOG: Building (make.bash only).
+        buildrelease_test.go:769: task freebsd-amd64: Build binary archive: LOG: Building (make.bash only).
+        buildrelease_test.go:769: task linux-armv6l: Build binary archive: LOG: Building release tarball.
+        buildrelease_test.go:751: task linux-armv6l: Build binary archive: done: {0x14000b90300 28a48bbb-bc29-45b8-9936-e87c4a4777d3/linux-armv6l.tar.gz-396652032433140130    tar.gz  a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865}
+        buildrelease_test.go:747: task linux-armv6l: Run short tests: started
+        buildrelease_test.go:769: task linux-armv6l: Run short tests: LOG: Creating buildlet linux-arm-aws.
+        buildrelease_test.go:769: task linux-armv6l: Run short tests: LOG: Buildlet ready.
+        buildrelease_test.go:769: task linux-armv6l: Run short tests: LOG: Building (all.bash to ensure tests pass).
+        buildrelease_test.go:769: task darwin-amd64: Build binary archive: LOG: Building race detector.
+        buildrelease_test.go:769: task windows-amd64: Build binary archive: LOG: Building race detector.
+        buildrelease_test.go:769: task linux-386: Build binary archive: LOG: Building release tarball.
+        buildrelease_test.go:751: task linux-386: Build binary archive: done: {0x140003ae580 28a48bbb-bc29-45b8-9936-e87c4a4777d3/linux-386.tar.gz-4725182348039766269    tar.gz  a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865}
+        buildrelease_test.go:747: task linux-386: Run long tests: started
+        buildrelease_test.go:747: task linux-386: Run short tests: started
+        buildrelease_test.go:769: task linux-386: Run short tests: LOG: Creating buildlet linux-386-buster.
+        buildrelease_test.go:769: task linux-386: Run short tests: LOG: Buildlet ready.
+        buildrelease_test.go:769: task linux-386: Run long tests: LOG: Creating buildlet linux-386-longtest.
+        buildrelease_test.go:769: task linux-386: Run long tests: LOG: Buildlet ready.
+        buildrelease_test.go:769: task linux-386: Run long tests: LOG: Building (all.bash to ensure tests pass).
+        buildrelease_test.go:769: task linux-386: Run short tests: LOG: Building (all.bash to ensure tests pass).
+        buildrelease_test.go:769: task linux-ppc64le: Build binary archive: LOG: Building release tarball.
+        buildrelease_test.go:751: task linux-ppc64le: Build binary archive: done: {0x140003aea00 28a48bbb-bc29-45b8-9936-e87c4a4777d3/linux-ppc64le.tar.gz-274545736977566264    tar.gz  a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865}
+        buildrelease_test.go:769: task windows-arm64: Build binary archive: LOG: Building release tarball.
+        buildrelease_test.go:751: task windows-arm64: Build binary archive: done: {0x1400065e380 28a48bbb-bc29-45b8-9936-e87c4a4777d3/windows-arm64.tar.gz-6108869476396998137    tar.gz  a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865}
+        buildrelease_test.go:747: task windows-arm64: Convert to .zip: started
+        buildrelease_test.go:747: task windows-arm64: Build MSI: started
+        buildrelease_test.go:747: task windows-arm64: Run short tests: started
+        buildrelease_test.go:769: task windows-arm64: Run short tests: LOG: Creating buildlet windows-arm64-11.
+        buildrelease_test.go:769: task windows-arm64: Run short tests: LOG: Buildlet ready.
+        buildrelease_test.go:769: task windows-arm64: Build MSI: LOG: Creating buildlet windows-arm64-11.
+        buildrelease_test.go:769: task windows-arm64: Build MSI: LOG: Buildlet ready.
+        buildrelease_test.go:769: task windows-arm64: Run short tests: LOG: Installing go1.4 (second time, for all.bash).
+        buildrelease_test.go:751: task windows-arm64: Convert to .zip: done: {0x140003ae900 28a48bbb-bc29-45b8-9936-e87c4a4777d3/windows-arm64.zip-8011157924902590404    zip  83dd12822c9878807baaba69a06277c2a95ed7077018aa8e4dc6a4b3e39f0ce2 3324}
+        buildrelease_test.go:769: task windows-arm64: Run short tests: LOG: Building (all.bash to ensure tests pass).
+        buildrelease_test.go:769: task windows-arm64: Build MSI: LOG: Pushing and running releaselet.
+        buildrelease_test.go:769: task linux-arm64: Build binary archive: LOG: Building release tarball.
+        buildrelease_test.go:751: task linux-arm64: Build binary archive: done: {0x140001daa00 28a48bbb-bc29-45b8-9936-e87c4a4777d3/linux-arm64.tar.gz-1539246593947606406    tar.gz  a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865}
+        buildrelease_test.go:747: task linux-arm64: Run short tests: started
+        buildrelease_test.go:769: task linux-arm64: Run short tests: LOG: Creating buildlet linux-arm64-aws.
+        buildrelease_test.go:769: task linux-arm64: Run short tests: LOG: Buildlet ready.
+        buildrelease_test.go:769: task linux-arm64: Run short tests: LOG: Building (all.bash to ensure tests pass).
+        buildrelease_test.go:769: task linux-amd64: Build binary archive: LOG: Building race detector.
+        buildrelease_test.go:769: task freebsd-386: Build binary archive: LOG: Building release tarball.
+        buildrelease_test.go:751: task freebsd-386: Build binary archive: done: {0x140003aeb00 28a48bbb-bc29-45b8-9936-e87c4a4777d3/freebsd-386.tar.gz-4582100613290217844    tar.gz  a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865}
+        buildrelease_test.go:747: task freebsd-386: Run short tests: started
+        buildrelease_test.go:769: task freebsd-386: Run short tests: LOG: Creating buildlet freebsd-386-12_3.
+        buildrelease_test.go:769: task freebsd-386: Run short tests: LOG: Buildlet ready.
+        buildrelease_test.go:769: task freebsd-386: Run short tests: LOG: Installing go1.4 (second time, for all.bash).
+        buildrelease_test.go:769: task freebsd-386: Run short tests: LOG: Building (all.bash to ensure tests pass).
+        buildrelease_test.go:769: task freebsd-amd64: Build binary archive: LOG: Building race detector.
+        buildrelease_test.go:769: task linux-s390x: Build binary archive: LOG: Building release tarball.
+        buildrelease_test.go:751: task linux-s390x: Build binary archive: done: {0x1400065e680 28a48bbb-bc29-45b8-9936-e87c4a4777d3/linux-s390x.tar.gz-1546094617887058532    tar.gz  c1573cc09a4f062b23386315ddc0ad4586185a19b1248a10af59c75a04a40899 799}
+        buildrelease_test.go:769: task darwin-arm64: Build binary archive: LOG: Building race detector.
+        buildrelease_test.go:769: task windows-386: Build binary archive: LOG: Building release tarball.
+        buildrelease_test.go:751: task windows-386: Build binary archive: done: {0x1400065e780 28a48bbb-bc29-45b8-9936-e87c4a4777d3/windows-386.tar.gz-3721085518383579560    tar.gz  a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865}
+        buildrelease_test.go:747: task windows-386: Convert to .zip: started
+        buildrelease_test.go:747: task windows-386: Run short tests: started
+        buildrelease_test.go:747: task windows-386: Build MSI: started
+        buildrelease_test.go:769: task windows-386: Build MSI: LOG: Creating buildlet windows-386-2008.
+        buildrelease_test.go:769: task windows-386: Build MSI: LOG: Buildlet ready.
+        buildrelease_test.go:769: task windows-386: Run short tests: LOG: Creating buildlet windows-386-2008.
+        buildrelease_test.go:769: task windows-386: Run short tests: LOG: Buildlet ready.
+        buildrelease_test.go:751: task windows-386: Convert to .zip: done: {0x140001daf80 28a48bbb-bc29-45b8-9936-e87c4a4777d3/windows-386.zip-8284680763298900937    zip  83dd12822c9878807baaba69a06277c2a95ed7077018aa8e4dc6a4b3e39f0ce2 3324}
+        buildrelease_test.go:769: task windows-386: Run short tests: LOG: Installing go1.4 (second time, for all.bash).
+        buildrelease_test.go:769: task windows-386: Build MSI: LOG: Pushing and running releaselet.
+        buildrelease_test.go:769: task windows-386: Run short tests: LOG: Building (all.bash to ensure tests pass).
+        buildrelease_test.go:751: task linux-armv6l: Run short tests: done: <nil>
+        buildrelease_test.go:769: task darwin-amd64: Build binary archive: LOG: Building release tarball.
+        buildrelease_test.go:751: task darwin-amd64: Build binary archive: done: {0x1400065e600 28a48bbb-bc29-45b8-9936-e87c4a4777d3/darwin-amd64.tar.gz-8614546398816616638    tar.gz  19f108a9e1195d7512db0fc2e7a82f7c7b6d5e536e70521baa735ac2cb4f6f42 925}
+        buildrelease_test.go:747: task darwin-amd64: Run short tests: started
+        buildrelease_test.go:769: task darwin-amd64: Run short tests: LOG: Creating buildlet darwin-amd64-12_0.
+        buildrelease_test.go:769: task darwin-amd64: Run short tests: LOG: Buildlet ready.
+        buildrelease_test.go:769: task darwin-amd64: Run short tests: LOG: Building (all.bash to ensure tests pass).
+        buildrelease_test.go:769: task windows-amd64: Build binary archive: LOG: Building release tarball.
+        buildrelease_test.go:751: task windows-amd64: Build binary archive: done: {0x14000b90400 28a48bbb-bc29-45b8-9936-e87c4a4777d3/windows-amd64.tar.gz-2122454934244722573    tar.gz  19f108a9e1195d7512db0fc2e7a82f7c7b6d5e536e70521baa735ac2cb4f6f42 925}
+        buildrelease_test.go:747: task windows-amd64: Build MSI: started
+        buildrelease_test.go:747: task windows-amd64: Convert to .zip: started
+        buildrelease_test.go:747: task windows-amd64: Run short tests: started
+        buildrelease_test.go:747: task windows-amd64: Run long tests: started
+        buildrelease_test.go:769: task windows-amd64: Run long tests: LOG: Creating buildlet windows-amd64-longtest.
+        buildrelease_test.go:769: task windows-amd64: Run long tests: LOG: Buildlet ready.
+        buildrelease_test.go:751: task linux-386: Run long tests: done: <nil>
+        buildrelease_test.go:751: task windows-amd64: Convert to .zip: done: {0x140003aed00 28a48bbb-bc29-45b8-9936-e87c4a4777d3/windows-amd64.zip-7159998496215939231    zip  8ccfafc9f2328ebc314f735c36cb7c0446a47b0d1da553fac6297355d3d8fb61 3753}
+        buildrelease_test.go:769: task windows-amd64: Build MSI: LOG: Creating buildlet windows-amd64-2008.
+        buildrelease_test.go:769: task windows-amd64: Build MSI: LOG: Buildlet ready.
+        buildrelease_test.go:769: task windows-amd64: Run short tests: LOG: Creating buildlet windows-amd64-2008.
+        buildrelease_test.go:769: task windows-amd64: Run short tests: LOG: Buildlet ready.
+        buildrelease_test.go:769: task windows-amd64: Run long tests: LOG: Installing go1.4 (second time, for all.bash).
+        buildrelease_test.go:769: task windows-amd64: Run long tests: LOG: Building (all.bash to ensure tests pass).
+        buildrelease_test.go:769: task windows-amd64: Build MSI: LOG: Pushing and running releaselet.
+        buildrelease_test.go:769: task windows-amd64: Run short tests: LOG: Installing go1.4 (second time, for all.bash).
+        buildrelease_test.go:751: task linux-386: Run short tests: done: <nil>
+        buildrelease_test.go:769: task windows-amd64: Run short tests: LOG: Building (all.bash to ensure tests pass).
+        buildrelease_test.go:751: task windows-arm64: Run short tests: done: <nil>
+        buildrelease_test.go:769: task windows-arm64: Build MSI: LOG: Downloading file from ""msi"".
+        buildrelease_test.go:751: task windows-arm64: Build MSI: done: {0x140001db580 28a48bbb-bc29-45b8-9936-e87c4a4777d3/windows-arm64.msi-1511344558894419063    msi  7f13d3d73747c6a7925678054d8bce15576d73504450526889705700691f1682 12}
+        buildrelease_test.go:751: task linux-arm64: Run short tests: done: <nil>
+        buildrelease_test.go:751: task freebsd-386: Run short tests: done: <nil>
+        buildrelease_test.go:769: task linux-amd64: Build binary archive: LOG: Building release tarball.
+        buildrelease_test.go:751: task linux-amd64: Build binary archive: done: {0x140003ae800 28a48bbb-bc29-45b8-9936-e87c4a4777d3/linux-amd64.tar.gz-6766728707909738079    tar.gz  19f108a9e1195d7512db0fc2e7a82f7c7b6d5e536e70521baa735ac2cb4f6f42 925}
+        buildrelease_test.go:747: task linux-amd64: Run short tests: started
+        buildrelease_test.go:747: task linux-amd64: Run long tests: started
+        buildrelease_test.go:769: task linux-amd64: Run long tests: LOG: Creating buildlet linux-amd64-longtest.
+        buildrelease_test.go:769: task linux-amd64: Run short tests: LOG: Creating buildlet linux-amd64-buster.
+        buildrelease_test.go:769: task linux-amd64: Run long tests: LOG: Buildlet ready.
+        buildrelease_test.go:769: task linux-amd64: Run short tests: LOG: Buildlet ready.
+        buildrelease_test.go:769: task linux-amd64: Run long tests: LOG: Building (all.bash to ensure tests pass).
+        buildrelease_test.go:769: task linux-amd64: Run short tests: LOG: Building (all.bash to ensure tests pass).
+        buildrelease_test.go:769: task freebsd-amd64: Build binary archive: LOG: Building release tarball.
+        buildrelease_test.go:769: task darwin-arm64: Build binary archive: LOG: Building release tarball.
+        buildrelease_test.go:751: task freebsd-amd64: Build binary archive: done: {0x14000b90700 28a48bbb-bc29-45b8-9936-e87c4a4777d3/freebsd-amd64.tar.gz-558637465233629118    tar.gz  19f108a9e1195d7512db0fc2e7a82f7c7b6d5e536e70521baa735ac2cb4f6f42 925}
+        buildrelease_test.go:747: task freebsd-amd64: Run short tests: started
+        buildrelease_test.go:769: task freebsd-amd64: Run short tests: LOG: Creating buildlet freebsd-amd64-12_3.
+        buildrelease_test.go:769: task freebsd-amd64: Run short tests: LOG: Buildlet ready.
+        buildrelease_test.go:751: task darwin-arm64: Build binary archive: done: {0x140003aee80 28a48bbb-bc29-45b8-9936-e87c4a4777d3/darwin-arm64.tar.gz-4772647004624956596    tar.gz  19f108a9e1195d7512db0fc2e7a82f7c7b6d5e536e70521baa735ac2cb4f6f42 925}
+        buildrelease_test.go:747: task darwin-arm64: Run short tests: started
+        buildrelease_test.go:769: task darwin-arm64: Run short tests: LOG: Creating buildlet darwin-arm64-12.
+        buildrelease_test.go:769: task darwin-arm64: Run short tests: LOG: Buildlet ready.
+        buildrelease_test.go:769: task freebsd-amd64: Run short tests: LOG: Installing go1.4 (second time, for all.bash).
+        buildrelease_test.go:769: task freebsd-amd64: Run short tests: LOG: Building (all.bash to ensure tests pass).
+        buildrelease_test.go:769: task darwin-arm64: Run short tests: LOG: Building (all.bash to ensure tests pass).
+        buildrelease_test.go:769: task windows-386: Build MSI: LOG: Downloading file from ""msi"".
+        buildrelease_test.go:751: task windows-386: Build MSI: done: {0x140001db680 28a48bbb-bc29-45b8-9936-e87c4a4777d3/windows-386.msi-7460053069893440371    msi  7f13d3d73747c6a7925678054d8bce15576d73504450526889705700691f1682 12}
+        buildrelease_test.go:751: task windows-386: Run short tests: done: <nil>
+        buildrelease_test.go:751: task darwin-amd64: Run short tests: done: <nil>
+        buildrelease_test.go:751: task windows-amd64: Run long tests: done: <nil>
+        buildrelease_test.go:769: task windows-amd64: Build MSI: LOG: Downloading file from ""msi"".
+        buildrelease_test.go:751: task windows-amd64: Build MSI: done: {0x14000b90a80 28a48bbb-bc29-45b8-9936-e87c4a4777d3/windows-amd64.msi-5982118177642546219    msi  7f13d3d73747c6a7925678054d8bce15576d73504450526889705700691f1682 12}
+        buildrelease_test.go:747: task Stage artifacts for signing: started
+        buildrelease_test.go:751: task Stage artifacts for signing: done: [{<nil> 28a48bbb-bc29-45b8-9936-e87c4a4777d3/src.tar.gz-2047678057443587713 28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.src.tar.gz   src.tar.gz go1.18beta1.src.tar.gz 347c3c6fc407b6c05b39b1ecae0ee8f0f2da8aecd53be9f34f368140243c9a6d 697} {0x14000b90c80 28a48bbb-bc29-45b8-9936-e87c4a4777d3/windows-386.msi-7460053069893440371 28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.windows-386.msi   msi go1.18beta1.windows-386.msi 7f13d3d73747c6a7925678054d8bce15576d73504450526889705700691f1682 12} {0x14000b90d00 28a48bbb-bc29-45b8-9936-e87c4a4777d3/windows-386.zip-8284680763298900937 28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.windows-386.zip   zip go1.18beta1.windows-386.zip 83dd12822c9878807baaba69a06277c2a95ed7077018aa8e4dc6a4b3e39f0ce2 3324} {0x14000b90d80 28a48bbb-bc29-45b8-9936-e87c4a4777d3/freebsd-386.tar.gz-4582100613290217844 28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.freebsd-386.tar.gz   tar.gz go1.18beta1.freebsd-386.tar.gz a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865} {0x14000b90e00 28a48bbb-bc29-45b8-9936-e87c4a4777d3/freebsd-amd64.tar.gz-558637465233629118 28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.freebsd-amd64.tar.gz   tar.gz go1.18beta1.freebsd-amd64.tar.gz 19f108a9e1195d7512db0fc2e7a82f7c7b6d5e536e70521baa735ac2cb4f6f42 925} {0x14000b90e80 28a48bbb-bc29-45b8-9936-e87c4a4777d3/linux-arm64.tar.gz-1539246593947606406 28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.linux-arm64.tar.gz   tar.gz go1.18beta1.linux-arm64.tar.gz a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865} {0x14000b90f00 28a48bbb-bc29-45b8-9936-e87c4a4777d3/linux-amd64.tar.gz-6766728707909738079 28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.linux-amd64.tar.gz   tar.gz go1.18beta1.linux-amd64.tar.gz 19f108a9e1195d7512db0fc2e7a82f7c7b6d5e536e70521baa735ac2cb4f6f42 925} {0x14000b90f80 28a48bbb-bc29-45b8-9936-e87c4a4777d3/linux-ppc64le.tar.gz-274545736977566264 28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.linux-ppc64le.tar.gz   tar.gz go1.18beta1.linux-ppc64le.tar.gz a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865} {0x14000b91000 28a48bbb-bc29-45b8-9936-e87c4a4777d3/darwin-arm64.tar.gz-4772647004624956596 28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.darwin-arm64.tar.gz   tar.gz go1.18beta1.darwin-arm64.tar.gz 19f108a9e1195d7512db0fc2e7a82f7c7b6d5e536e70521baa735ac2cb4f6f42 925} {0x14000b91080 28a48bbb-bc29-45b8-9936-e87c4a4777d3/linux-s390x.tar.gz-1546094617887058532 28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.linux-s390x.tar.gz   tar.gz go1.18beta1.linux-s390x.tar.gz c1573cc09a4f062b23386315ddc0ad4586185a19b1248a10af59c75a04a40899 799} {0x14000b91100 28a48bbb-bc29-45b8-9936-e87c4a4777d3/windows-amd64.msi-5982118177642546219 28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.windows-amd64.msi   msi go1.18beta1.windows-amd64.msi 7f13d3d73747c6a7925678054d8bce15576d73504450526889705700691f1682 12} {0x14000b91180 28a48bbb-bc29-45b8-9936-e87c4a4777d3/windows-amd64.zip-7159998496215939231 28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.windows-amd64.zip   zip go1.18beta1.windows-amd64.zip 8ccfafc9f2328ebc314f735c36cb7c0446a47b0d1da553fac6297355d3d8fb61 3753} {0x14000b91200 28a48bbb-bc29-45b8-9936-e87c4a4777d3/windows-arm64.msi-1511344558894419063 28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.windows-arm64.msi   msi go1.18beta1.windows-arm64.msi 7f13d3d73747c6a7925678054d8bce15576d73504450526889705700691f1682 12} {0x14000b91280 28a48bbb-bc29-45b8-9936-e87c4a4777d3/windows-arm64.zip-8011157924902590404 28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.windows-arm64.zip   zip go1.18beta1.windows-arm64.zip 83dd12822c9878807baaba69a06277c2a95ed7077018aa8e4dc6a4b3e39f0ce2 3324} {0x14000b91300 28a48bbb-bc29-45b8-9936-e87c4a4777d3/darwin-amd64.tar.gz-8614546398816616638 28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.darwin-amd64.tar.gz   tar.gz go1.18beta1.darwin-amd64.tar.gz 19f108a9e1195d7512db0fc2e7a82f7c7b6d5e536e70521baa735ac2cb4f6f42 925} {0x14000b91380 28a48bbb-bc29-45b8-9936-e87c4a4777d3/linux-386.tar.gz-4725182348039766269 28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.linux-386.tar.gz   tar.gz go1.18beta1.linux-386.tar.gz a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865} {0x14000b91400 28a48bbb-bc29-45b8-9936-e87c4a4777d3/linux-armv6l.tar.gz-396652032433140130 28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.linux-armv6l.tar.gz   tar.gz go1.18beta1.linux-armv6l.tar.gz a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865}]
+        buildrelease_test.go:747: task Wait for signed artifacts: started
+        buildrelease_test.go:751: task windows-amd64: Run short tests: done: <nil>
+        buildrelease_test.go:769: task Wait for signed artifacts: LOG: Still waiting for 16 artifacts to be signed
+        buildrelease_test.go:751: task Wait for signed artifacts: done: [{0x14000b91e80   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.windows-arm64.zip  zip go1.18beta1.windows-arm64.zip 83dd12822c9878807baaba69a06277c2a95ed7077018aa8e4dc6a4b3e39f0ce2 3324} {0x14000b91f00   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.windows-386.zip  zip go1.18beta1.windows-386.zip 83dd12822c9878807baaba69a06277c2a95ed7077018aa8e4dc6a4b3e39f0ce2 3324} {0x14000b91f80   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.windows-amd64.zip  zip go1.18beta1.windows-amd64.zip 8ccfafc9f2328ebc314f735c36cb7c0446a47b0d1da553fac6297355d3d8fb61 3753} {0x1400065e000   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/signed/go1.18beta1.windows-386.msi  msi go1.18beta1.windows-386.msi 7f13d3d73747c6a7925678054d8bce15576d73504450526889705700691f1682 12} {0x1400065e100   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.freebsd-386.tar.gz gpg signature tar.gz go1.18beta1.freebsd-386.tar.gz a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865} {0x1400065e200   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.freebsd-amd64.tar.gz gpg signature tar.gz go1.18beta1.freebsd-amd64.tar.gz 19f108a9e1195d7512db0fc2e7a82f7c7b6d5e536e70521baa735ac2cb4f6f42 925} {0x1400065e280   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.linux-arm64.tar.gz gpg signature tar.gz go1.18beta1.linux-arm64.tar.gz a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865} {0x1400065e480   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/signed/go1.18beta1.darwin-arm64.tar.gz gpg signature tar.gz go1.18beta1.darwin-arm64.tar.gz 19f108a9e1195d7512db0fc2e7a82f7c7b6d5e536e70521baa735ac2cb4f6f42 925} {0x1400065e500   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/signed/go1.18beta1.darwin-arm64.pkg  pkg go1.18beta1.darwin-arm64.pkg aa1e86af0ca370091a8b6906e14da5b2720a6633ce633d96ced3e10c9ff27b5e 12} {<nil>   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.src.tar.gz gpg signature src.tar.gz go1.18beta1.src.tar.gz 347c3c6fc407b6c05b39b1ecae0ee8f0f2da8aecd53be9f34f368140243c9a6d 697} {0x1400065e580   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/signed/go1.18beta1.windows-arm64.msi  msi go1.18beta1.windows-arm64.msi 7f13d3d73747c6a7925678054d8bce15576d73504450526889705700691f1682 12} {0x1400065e980   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.linux-amd64.tar.gz gpg signature tar.gz go1.18beta1.linux-amd64.tar.gz 19f108a9e1195d7512db0fc2e7a82f7c7b6d5e536e70521baa735ac2cb4f6f42 925} {0x1400065ea80   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/signed/go1.18beta1.windows-amd64.msi  msi go1.18beta1.windows-amd64.msi 7f13d3d73747c6a7925678054d8bce15576d73504450526889705700691f1682 12} {0x1400065ec00   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.linux-386.tar.gz gpg signature tar.gz go1.18beta1.linux-386.tar.gz a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865} {0x1400065ec80   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.linux-ppc64le.tar.gz gpg signature tar.gz go1.18beta1.linux-ppc64le.tar.gz a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865} {0x1400065ed00   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.linux-s390x.tar.gz gpg signature tar.gz go1.18beta1.linux-s390x.tar.gz c1573cc09a4f062b23386315ddc0ad4586185a19b1248a10af59c75a04a40899 799} {0x1400065ed80   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/signed/go1.18beta1.darwin-amd64.tar.gz gpg signature tar.gz go1.18beta1.darwin-amd64.tar.gz 19f108a9e1195d7512db0fc2e7a82f7c7b6d5e536e70521baa735ac2cb4f6f42 925} {0x1400065ee00   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.linux-armv6l.tar.gz gpg signature tar.gz go1.18beta1.linux-armv6l.tar.gz a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865} {0x1400065ee80   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/signed/go1.18beta1.darwin-amd64.pkg  pkg go1.18beta1.darwin-amd64.pkg aa1e86af0ca370091a8b6906e14da5b2720a6633ce633d96ced3e10c9ff27b5e 12}]
+        buildrelease_test.go:751: task linux-amd64: Run long tests: done: <nil>
+        buildrelease_test.go:751: task linux-amd64: Run short tests: done: <nil>
+        buildrelease_test.go:751: task freebsd-amd64: Run short tests: done: <nil>
+        buildrelease_test.go:751: task darwin-arm64: Run short tests: done: <nil>
+        buildrelease_test.go:747: task Wait for signing and tests: started
+        buildrelease_test.go:751: task Wait for signing and tests: done: [{0x1400065f900   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.windows-arm64.zip  zip go1.18beta1.windows-arm64.zip 83dd12822c9878807baaba69a06277c2a95ed7077018aa8e4dc6a4b3e39f0ce2 3324} {0x1400065f980   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.windows-386.zip  zip go1.18beta1.windows-386.zip 83dd12822c9878807baaba69a06277c2a95ed7077018aa8e4dc6a4b3e39f0ce2 3324} {0x1400065fa00   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.windows-amd64.zip  zip go1.18beta1.windows-amd64.zip 8ccfafc9f2328ebc314f735c36cb7c0446a47b0d1da553fac6297355d3d8fb61 3753} {0x1400065fa80   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/signed/go1.18beta1.windows-386.msi  msi go1.18beta1.windows-386.msi 7f13d3d73747c6a7925678054d8bce15576d73504450526889705700691f1682 12} {0x1400065fb00   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.freebsd-386.tar.gz gpg signature tar.gz go1.18beta1.freebsd-386.tar.gz a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865} {0x1400065fb80   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.freebsd-amd64.tar.gz gpg signature tar.gz go1.18beta1.freebsd-amd64.tar.gz 19f108a9e1195d7512db0fc2e7a82f7c7b6d5e536e70521baa735ac2cb4f6f42 925} {0x1400065fc00   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.linux-arm64.tar.gz gpg signature tar.gz go1.18beta1.linux-arm64.tar.gz a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865} {0x1400065fc80   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/signed/go1.18beta1.darwin-arm64.tar.gz gpg signature tar.gz go1.18beta1.darwin-arm64.tar.gz 19f108a9e1195d7512db0fc2e7a82f7c7b6d5e536e70521baa735ac2cb4f6f42 925} {0x1400065fd00   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/signed/go1.18beta1.darwin-arm64.pkg  pkg go1.18beta1.darwin-arm64.pkg aa1e86af0ca370091a8b6906e14da5b2720a6633ce633d96ced3e10c9ff27b5e 12} {<nil>   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.src.tar.gz gpg signature src.tar.gz go1.18beta1.src.tar.gz 347c3c6fc407b6c05b39b1ecae0ee8f0f2da8aecd53be9f34f368140243c9a6d 697} {0x1400065fd80   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/signed/go1.18beta1.windows-arm64.msi  msi go1.18beta1.windows-arm64.msi 7f13d3d73747c6a7925678054d8bce15576d73504450526889705700691f1682 12} {0x1400065fe00   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.linux-amd64.tar.gz gpg signature tar.gz go1.18beta1.linux-amd64.tar.gz 19f108a9e1195d7512db0fc2e7a82f7c7b6d5e536e70521baa735ac2cb4f6f42 925} {0x1400065fe80   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/signed/go1.18beta1.windows-amd64.msi  msi go1.18beta1.windows-amd64.msi 7f13d3d73747c6a7925678054d8bce15576d73504450526889705700691f1682 12} {0x1400065ff00   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.linux-386.tar.gz gpg signature tar.gz go1.18beta1.linux-386.tar.gz a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865} {0x1400065ff80   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.linux-ppc64le.tar.gz gpg signature tar.gz go1.18beta1.linux-ppc64le.tar.gz a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865} {0x14000116000   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.linux-s390x.tar.gz gpg signature tar.gz go1.18beta1.linux-s390x.tar.gz c1573cc09a4f062b23386315ddc0ad4586185a19b1248a10af59c75a04a40899 799} {0x14000116d80   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/signed/go1.18beta1.darwin-amd64.tar.gz gpg signature tar.gz go1.18beta1.darwin-amd64.tar.gz 19f108a9e1195d7512db0fc2e7a82f7c7b6d5e536e70521baa735ac2cb4f6f42 925} {0x14000116e00   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/go1.18beta1.linux-armv6l.tar.gz gpg signature tar.gz go1.18beta1.linux-armv6l.tar.gz a94902db46624c8263ff26d8846c07c13a257d7c036a8772a8fdf4804eaacb31 865} {0x14000116e80   28a48bbb-bc29-45b8-9936-e87c4a4777d3/signing/go1.18beta1/signed/go1.18beta1.darwin-amd64.pkg  pkg go1.18beta1.darwin-amd64.pkg aa1e86af0ca370091a8b6906e14da5b2720a6633ce633d96ced3e10c9ff27b5e 12}]
+        buildrelease_test.go:747: task Wait for Release Coordinator Approval: started
+        buildrelease_test.go:751: task Wait for Release Coordinator Approval: done: <nil>
+        buildrelease_test.go:747: task Tag version: started
+        buildrelease_test.go:751: task Tag version: done: <nil>
+        buildrelease_test.go:747: task Upload artifacts to CDN: started
+        buildrelease_test.go:747: task Push issues: started
+        buildrelease_test.go:751: task Push issues: done: <nil>
+        buildrelease_test.go:769: task Upload artifacts to CDN: LOG: Still waiting for 18 artifacts to be published
+        buildrelease_test.go:751: task Upload artifacts to CDN: done: <nil>
+        buildrelease_test.go:747: task Publish to website: started
+        buildrelease_test.go:769: task Publish to website: LOG: Published 19 artifacts for go1.18beta1
+        buildrelease_test.go:751: task Publish to website: done: go1.18beta1
+        buildrelease_test.go:487: zip: not a valid zip file
+        --- FAIL: TestRelease/beta/windows-arm64.zip (0.00s)
+            testing.go:1343: test executed panic(nil) or runtime.Goexit: subtest may have called FailNow on a parent test
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/freebsd-386-12_3/0: 6 files, 2 dirs (3.409041ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/linux-s390x-crosscompile/6: 6 files, 2 dirs (855.166µs)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/freebsd-386-12_3/0/go1.4: 1 files, 1 dirs (569.083µs)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/darwin-arm64-12/1: 6 files, 2 dirs (3.356375ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/linux-arm64-aws/8: 6 files, 2 dirs (1.785209ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/windows-amd64-2008/2: 6 files, 2 dirs (2.819083ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/windows-386-2008/3: 6 files, 2 dirs (3.364833ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/linux-ppc64le-buildlet/10: 6 files, 2 dirs (6.327958ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/freebsd-amd64-12_3/5: 6 files, 2 dirs (10.343042ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/linux-amd64-buster/4: 6 files, 2 dirs (11.760875ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/windows-arm64-11/9: 6 files, 2 dirs (8.691333ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/linux-386-buster/11: 6 files, 2 dirs (19.095708ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/darwin-amd64-12_0/7: 6 files, 2 dirs (25.489375ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/linux-arm-aws/12: 6 files, 2 dirs (20.2165ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/freebsd-amd64-12_3/5/go1.4: 1 files, 1 dirs (4.201792ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/windows-amd64-2008/2/go1.4: 1 files, 1 dirs (5.451875ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/windows-arm64-11/9/go1.4: 1 files, 1 dirs (5.288375ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/windows-386-2008/3/go1.4: 1 files, 1 dirs (260.75µs)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/freebsd-386-12_3/13: 9 files, 5 dirs (922.375µs)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/freebsd-386-12_3/13/go1.4: 1 files, 1 dirs (597.417µs)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/linux-386-longtest/14: 9 files, 5 dirs (1.361375ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/linux-386-buster/15: 9 files, 5 dirs (2.631375ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/linux-arm64-aws/16: 9 files, 5 dirs (3.139167ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/linux-arm-aws/17: 9 files, 5 dirs (944.834µs)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/windows-386-2008/18: 9 files, 5 dirs (1.412292ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/windows-386-2008/19: 9 files, 5 dirs (4.1345ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/windows-386-2008/19/go1.4: 1 files, 1 dirs (474.625µs)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/windows-arm64-11/20: 9 files, 5 dirs (2.056625ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/windows-arm64-11/21: 9 files, 5 dirs (1.10525ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/windows-arm64-11/20/go1.4: 1 files, 1 dirs (356.209µs)
+I'm a test! :D
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/linux-amd64-buster/22: 10 files, 7 dirs (1.57575ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/linux-amd64-longtest/23: 10 files, 7 dirs (2.9205ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/darwin-arm64-12/24: 10 files, 7 dirs (1.026167ms)
+I'm a test! :D
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/darwin-amd64-12_0/25: 10 files, 7 dirs (2.436958ms)
+I'm a test! :D
+I'm a test! :D
+I'm a test! :D
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/freebsd-amd64-12_3/26: 10 files, 7 dirs (1.794167ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/freebsd-amd64-12_3/26/go1.4: 1 files, 1 dirs (489.25µs)
+I'm a test! :D
+I'm a test! :D
+I'm a test! :D
+I'm a test! :D
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/windows-amd64-longtest/27: 10 files, 7 dirs (5.63675ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/windows-amd64-2008/28: 10 files, 7 dirs (14.966875ms)
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/windows-amd64-longtest/27/go1.4: 1 files, 1 dirs (824.125µs)
+I'm a test! :D
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/windows-amd64-2008/29: 10 files, 7 dirs (28.664584ms)
+I'm a test! :D
+2022/07/18 14:14:20 extracted tarball into /tmp/buildlet/tmp/TestSecuritysuccess1191981553/001/windows-amd64-2008/29/go1.4: 1 files, 1 dirs (6.489292ms)
+I'm a test! :D
+I'm a test! :D
+I'm a test! :D
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/linux-s390x-crosscompile/1: 6 files, 2 dirs (7.077583ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/darwin-arm64-12/7: 6 files, 2 dirs (1.194792ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/freebsd-386-12_3/6: 6 files, 2 dirs (3.010625ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/linux-arm-aws/0: 6 files, 2 dirs (23.579875ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/windows-amd64-2008/4: 6 files, 2 dirs (7.300375ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/linux-386-buster/8: 6 files, 2 dirs (3.156625ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/freebsd-386-12_3/6/go1.4: 1 files, 1 dirs (1.993833ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/windows-arm64-11/9: 6 files, 2 dirs (6.107084ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/windows-386-2008/11: 6 files, 2 dirs (4.844833ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/linux-ppc64le-buildlet/12: 6 files, 2 dirs (3.31075ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/linux-arm64-aws/5: 6 files, 2 dirs (888.75µs)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/darwin-amd64-12_0/3: 6 files, 2 dirs (23.50425ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/freebsd-amd64-12_3/10: 6 files, 2 dirs (14.266792ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/linux-amd64-buster/2: 6 files, 2 dirs (26.163833ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/windows-arm64-11/9/go1.4: 1 files, 1 dirs (308.291µs)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/windows-amd64-2008/4/go1.4: 1 files, 1 dirs (2.638333ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/freebsd-amd64-12_3/10/go1.4: 1 files, 1 dirs (729.5µs)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/windows-386-2008/11/go1.4: 1 files, 1 dirs (1.15225ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/linux-arm-aws/13: 9 files, 5 dirs (2.344708ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/linux-386-buster/14: 9 files, 5 dirs (2.023292ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/linux-386-longtest/15: 9 files, 5 dirs (2.508584ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/linux-arm64-aws/16: 9 files, 5 dirs (2.135917ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/windows-386-2008/17: 9 files, 5 dirs (1.577042ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/windows-386-2008/18: 9 files, 5 dirs (4.764708ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/windows-386-2008/17/go1.4: 1 files, 1 dirs (327.75µs)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/freebsd-386-12_3/19: 9 files, 5 dirs (1.137791ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/freebsd-386-12_3/19/go1.4: 1 files, 1 dirs (300.75µs)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/windows-arm64-11/20: 9 files, 5 dirs (1.071458ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/windows-arm64-11/20/go1.4: 1 files, 1 dirs (169.375µs)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/windows-arm64-11/21: 9 files, 5 dirs (1.44825ms)
+I'm a test! :D
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/darwin-arm64-12/22: 10 files, 7 dirs (1.302583ms)
+I'm a test! :D
+I'm a test! :D
+I'm a test! :D
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/windows-amd64-longtest/24: 10 files, 7 dirs (3.237917ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/windows-amd64-2008/23: 10 files, 7 dirs (3.405583ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/windows-amd64-2008/25: 10 files, 7 dirs (3.808ms)
+I'm a test! :D
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/windows-amd64-longtest/24/go1.4: 1 files, 1 dirs (840.542µs)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/windows-amd64-2008/25/go1.4: 1 files, 1 dirs (1.555625ms)
+I'm a test! :D
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/darwin-amd64-12_0/26: 10 files, 7 dirs (4.335792ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/linux-amd64-longtest/27: 10 files, 7 dirs (3.363875ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/linux-amd64-buster/28: 10 files, 7 dirs (6.047291ms)
+I'm a test! :D
+I'm a test! :D
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/freebsd-amd64-12_3/29: 10 files, 7 dirs (1.7015ms)
+2022/07/18 14:14:21 extracted tarball into /tmp/buildlet/tmp/TestSecurityfailure1361924808/001/freebsd-amd64-12_3/29/go1.4: 1 files, 1 dirs (630.458µs)
+I'm a test! :D
+I'm a test! :D
+I'm a test! :D
+I'm a test! :D
+I'm a test! :D
+I'm a test! :D
+2022/07/18 14:14:21 stopWorkflowHandler(_, _, [{id invalid}]) uuid.Parse(invalid): invalid UUID length: 7
+FAIL
+FAIL	golang.org/x/build/internal/relui	4.181s
+```
+
+</details>
+
+```
+2022/07/18 14:14:21 stopWorkflowHandler(_, _, [{id invalid}]) uuid.Parse(invalid): invalid UUID length: 7
+```
+
+https://build.golang.org/log/1b4e137bcc8fc73010bab292fea76e3908e23a11
+
+
+"
+https://github.com/golang/go/issues/50007,golang/go,runtime/pprof: new test TestLabelSystemstack is flaky,2021-12-07T22:34:12Z,"`greplogs --dashboard -md -l -e 'TestLabelSystemstack'`:
+
+[2021-12-05T12:50:44-ecf6b52/freebsd-arm-paulzhol](https://build.golang.org/log/ff42f9cb53e68c1b96c94050bfcc90f894ab502f)
+[2021-12-05T12:50:44-ecf6b52/linux-mipsle-rtrk](https://build.golang.org/log/ac0a2528686547576645bd6a393fa59014da8f0c)
+[2021-12-04T17:16:07-3396878/freebsd-arm-paulzhol](https://build.golang.org/log/639f9e551b3ccc0d38074c00cc015f940592c8d3)
+[2021-12-04T17:16:07-3396878/openbsd-mips64-jsing](https://build.golang.org/log/98a085d27af7432ebef2758a48a41aa18e21172f)
+[2021-12-04T11:59:35-1876b38/freebsd-arm-paulzhol](https://build.golang.org/log/d788c3295d98490bc0d1b16f059fc2b4f9be60f5)
+[2021-12-04T11:59:35-1876b38/openbsd-mips64-jsing](https://build.golang.org/log/d1d17b1a5982dce21cefa8788864a81d20150082)
+[2021-12-04T04:50:55-549cfef/freebsd-arm-paulzhol](https://build.golang.org/log/900f9415481dd00ac786e41075a1dc531d4bf2a2)
+[2021-12-04T01:07:21-821bf04/linux-386](https://build.golang.org/log/63aaaf6dc716f45fa6a96be475328d1fd56a4a4f)
+[2021-12-03T21:25:05-d20a0bf/linux-ppc64le-buildlet](https://build.golang.org/log/6e3582006b1ff559a600b7fbc1202d6d82e84841)
+[2021-12-03T21:25:05-d20a0bf/openbsd-mips64-jsing](https://build.golang.org/log/be16acfe1b4e4a1e6a715566eb5aa0c55c991063)
+[2021-12-03T16:11:38-9b0de08/linux-riscv64-unmatched](https://build.golang.org/log/bdda0f0319bc423a2d386da4f3686a74f5195f64)
+
+Test originally added in https://golang.org/cl/351751 for #48577 and reverted in https://golang.org/cl/360757 because it was extremely flaky. Re-added https://golang.org/cl/367200. It is much less flaky now, but still a bit flaky.
+
+cc @felixge @bcmills "
+https://github.com/golang/go/issues/49987,golang/go,cmd/compile/internal/test: TestIntendedInlining is flaky,2021-12-06T19:24:04Z,"`TestIntendedInlining` has been failing occasionally, for example [here](https://build.golang.org/log/9c1e1f40bbaa2663814dc046c7e6a64b6143abd9), with a report of functions not being inlined:
+```
+    inl_test.go:273: math/big.addVW was not inlined: unknown reason
+    inl_test.go:273: math/big.subVW was not inlined: unknown reason
+    inl_test.go:273: math/big.bigEndianWord was not inlined: unknown reason
+```
+Unless the compiler is somehow nondeterministic (unlikely), this looks like a glitch in the test itself.
+
+The test works by running `go build -a '-gcflags=all=-m -m' packages...`, and parsing the 8+ megabytes of output to look for some expected messages about function inlining. After modifying the test to tee the piped output into a `strings.Builder`, to be logged if the test fails, we can see what's going on:
+```
+... line 54312
+
+        # net
+        ../../../../net/cgo_stub.go:11:6: can inline init.0 with cost 3 as: func() { netGo = true }
+
+... line 57070
+
+       ../../../../net/dial.go:628:15:     from &OpError{...} (interface-converted) at ../../../../net/dial.go:628:15
+        ../../../../net/dial.go:628:15:     from return nil, &OpError{...} (return) at ../../../../ne# math/big
+        ../../../../math/big/accuracy_string.go:11:6: cannot inline Accuracy.String: function too complex: cost 90 exceeds budget 80
+
+... line 57843
+
+        ../../../../math/big/nat.go:1t/dial.go:628:3
+        ../../../../net/dial.go:625:53: parameter network leaks to {storage for &OpError{...}} with derefs=0:
+        ../../../../net/dial.go:625:53:   flow: {storage for &OpError{...}} = network:
+
+... line 58575
+
+        ../../../../net/hook.go:21:3: lea240:16: inlining call to nat.make
+        ../../../../math/big/int.go:1211:6: can inline (*Int).Sqrt with cost 78 as: method(*Int) func(*Int) *Int { if x.neg { panic(""square root of negative number"") }; z.neg = false; z.abs = nat.sqrt(z.abs, x.abs); return z }
+          
+... and so on                 
+```
+It seems the output from parallel builds is being interleaved. In line 57071, the label for the start of output for package `math/big` interrupts a partial line from package `net`, so the parser doesn't recognise the label and misses the inlining messages from `math/big`.
+
+The `Builder` struct has a mutex which is supposed to prevent interleaving of output. For example in `cmd/go/internal/work/exec.go` we see:
+```
+func (b *Builder) Showcmd(dir string, format string, args ...interface{}) {
+	b.output.Lock()
+	defer b.output.Unlock()
+	b.Print(b.fmtcmd(dir, format, args...) + ""\n"")
+}
+```
+But it turns out that the lock is not being applied consistently. In `cmd/go/internal/work/buildid.go` we see:
+```
+func (b *Builder) flushOutput(a *Action) {
+	b.Print(string(a.output))
+	a.output = nil
+}
+```
+Two possible remedies come to mind:
+(a) do the `Lock`/`Unlock` inside the `(*Builder).Print` function itself to ensure it's always used, or
+(b) lock the mutex around any calls to `Print` which could produce an arbitrary amount of output (in particular, more than the limit for atomic writes to a pipe).
+
+Choosing (a) would involve more locking than strictly necessary, so I'll submit a CL to do (b).
+"
+https://github.com/golang/go/issues/48926,golang/go,testing: flaky issue where crash written doesn't reproduce an error,2021-10-13T20:52:43Z,"I've been playing around with this fuzz test:
+
+```
+func FuzzFuzzer(f *testing.F) {
+	f.Fuzz(func(t *testing.T, x int, s string) {
+		b := []byte(s)
+		if bytes.Contains(b, strconv.AppendInt(nil, int64(x), 10)) {
+			t.Errorf(""minimize this! %d, len(s)=%d"", x, len(s))
+		}
+	})
+}
+```
+
+I've noticed that sometimes it is writing a crash that doesn't actually reproduce an error when re-run with `go test`. My guess is that this is a minimization issue, since I haven't been able to reproduce this bug when I set `-fuzzminimizetime=0`.
+
+Still trying to figure out where the bug was introduced and why none of our tests are catching it.
+
+/cc @golang/fuzzing "
+https://github.com/golang/go/issues/45586,golang/go,misc/cgo/test: TestParallelSleep is still flaky,2022-04-21T18:44:44Z,"[2021-04-15T12:38:13-7ad496b/windows-amd64-2012](https://build.golang.org/log/7b94fd917ca7cd4fa885d837c142b559bb5b2926)
+[2021-04-14T00:25:33-8dcc071/linux-ppc64le-buildlet](https://build.golang.org/log/dd476468cfb91c326b68eb0c66b795f887abff01)
+[2020-04-19T03:12:32-a32262d/netbsd-amd64-9_0](https://build.golang.org/log/43f01b36c1651d7b2d6df0809815fcbc6723fc3d)
+
+```
+--- FAIL: TestParallelSleep (1.57s)
+    testx.go:225: difference in start time for two sleep(1) is 562ms
+    testx.go:229: parallel 1-second sleeps slept for 0.562000 seconds
+FAIL
+```
+
+See previously #6636, #5638, #5480, #4008, #3964.
+
+CC @ianlancetaylor "
+https://github.com/golang/go/issues/44098,golang/go,x/tools/gopls/internal/regtest: Test_Issue38211 is flaky,2022-08-04T15:56:16Z,"Recent example:
+freebsd-amd64-12_0: https://build.golang.org/log/3b09d544e27e063edc32baadd6008e204ec1d5e5
+```
+ --- FAIL: Test_Issue38211 (7.09s)
+    --- FAIL: Test_Issue38211/singleton (1.75s)
+        diagnostics_test.go:680: formatting before save: before receipt of formatting edits, buffer version changed from 1 to 2
+```
+
+...which looks like a race. This may be a recent flake, or at least it started flaking more often recently.  #44035 might provide a fix, but filing this issue to track the de-flaking of this test.
+
+CC @heschik @stamblerre"
+https://github.com/golang/go/issues/41361,golang/go,"cmd/compile,test: issue24491b.go seems flaky on linux-386-sid",2020-09-13T07:55:16Z,"<!--
+Please answer these questions before submitting your issue. Thanks!
+For questions please use one of our forums: https://github.com/golang/go/wiki/Questions
+-->
+
+### What version of Go are you using (`go version`)?
+
+<pre>
+$ go version
+go version devel +5f1b12bfbe Sun Sep 13 04:35:35 2020 +0000 linux/amd64
+</pre>
+
+### Does this issue reproduce with the latest release?
+
+No
+
+### What operating system and processor architecture are you using (`go env`)?
+
+<details><summary><code>go env</code> Output</summary><br><pre>
+$ go env
+GO111MODULE=""auto""
+GOARCH=""amd64""
+GOBIN=""""
+GOCACHE=""/home/cuonglm/.cache/go-build""
+GOENV=""/home/cuonglm/.config/go/env""
+GOEXE=""""
+GOFLAGS=""""
+GOHOSTARCH=""amd64""
+GOHOSTOS=""linux""
+GOINSECURE=""""
+GOMODCACHE=""/home/cuonglm/go/pkg/mod""
+GONOPROXY=""""
+GONOSUMDB=""""
+GOOS=""linux""
+GOPATH=""/home/cuonglm/go""
+GOPRIVATE=""""
+GOPROXY=""https://proxy.golang.org,direct""
+GOROOT=""/home/cuonglm/sources/go""
+GOSUMDB=""sum.golang.org""
+GOTMPDIR=""""
+GOTOOLDIR=""/home/cuonglm/sources/go/pkg/tool/linux_amd64""
+GCCGO=""gccgo""
+AR=""ar""
+CC=""gcc""
+CXX=""g++""
+CGO_ENABLED=""1""
+GOMOD=""/home/cuonglm/sources/go/src/go.mod""
+CGO_CFLAGS=""-g -O2""
+CGO_CPPFLAGS=""""
+CGO_CXXFLAGS=""-g -O2""
+CGO_FFLAGS=""-g -O2""
+CGO_LDFLAGS=""-g -O2""
+PKG_CONFIG=""pkg-config""
+GOGCCFLAGS=""-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build629252996=/tmp/go-build -gno-record-gcc-switches""
+</pre></details>
+
+### What did you do?
+
+
+
+### What did you expect to see?
+
+`go tool dist test` passes.
+
+### What did you see instead?
+
+Test fails on builder: https://build.golang.org/log/72b1813880f8c739753c10320bc0ca2745aa73f9
+
+```
+go run run.go -- fixedbugs/issue24491b.go
+exit status 2
+panic: GC late
+
+goroutine 1 [running]:
+main.after(0x900e018)
+	/workdir/go/test/fixedbugs/issue24491b.go:39 +0x54
+main.main()
+	/workdir/go/test/fixedbugs/issue24491b.go:45 +0x2e
+
+FAIL	fixedbugs/issue24491b.go	0.111s
+2020/09/13 04:48:44 Failed: exit status 1
+go tool dist: FAILED
+```
+
+The test was added in 1f4521669416a2e14fb0b84481447f4a93f19878, and builder on this commit passed. The builder fails when commit 5f1b12bfbeb04ca6dbecbf064f5e5a42d8ba4b5a was submitted, it's a refactoring only, so it's not clear to me yet why the test can be failed.
+
+cc @mdempsky "
+https://github.com/golang/go/issues/36795,golang/go,x/tools/gopls: quickfix_empty_files (govim) test flaky,2020-02-19T21:24:44Z,"<!-- Please answer these questions before submitting your issue. Thanks! -->
+
+### What version of Go are you using (`go version`)?
+
+<pre>
+$ go version
+go version devel +73d213708e Sat Jan 25 16:34:18 2020 +0000 linux/amd64
+$ go list -m golang.org/x/tools
+golang.org/x/tools v0.0.0-20200124220429-8fe064f891f2
+$ go list -m golang.org/x/tools/gopls
+golang.org/x/tools/gopls v0.1.8-0.20200124220429-8fe064f891f2
+</pre>
+
+### Does this issue reproduce with the latest release?
+
+Yes
+
+### What operating system and processor architecture are you using (`go env`)?
+
+<details><summary><code>go env</code> Output</summary><br><pre>
+$ go env
+GO111MODULE=""on""
+GOARCH=""amd64""
+GOBIN=""""
+GOCACHE=""/home/myitcv/.cache/go-build""
+GOENV=""/home/myitcv/.config/go/env""
+GOEXE=""""
+GOFLAGS=""""
+GOHOSTARCH=""amd64""
+GOHOSTOS=""linux""
+GOINSECURE=""""
+GONOPROXY=""""
+GONOSUMDB=""""
+GOOS=""linux""
+GOPATH=""/home/myitcv/gostuff""
+GOPRIVATE=""""
+GOPROXY=""https://proxy.golang.org,direct""
+GOROOT=""/home/myitcv/gos""
+GOSUMDB=""sum.golang.org""
+GOTMPDIR=""""
+GOTOOLDIR=""/home/myitcv/gos/pkg/tool/linux_amd64""
+GCCGO=""gccgo""
+AR=""ar""
+CC=""gcc""
+CXX=""g++""
+CGO_ENABLED=""1""
+GOMOD=""/home/myitcv/gostuff/src/github.com/myitcv/govim/go.mod""
+CGO_CFLAGS=""-g -O2""
+CGO_CPPFLAGS=""""
+CGO_CXXFLAGS=""-g -O2""
+CGO_FFLAGS=""-g -O2""
+CGO_LDFLAGS=""-g -O2""
+PKG_CONFIG=""pkg-config""
+GOGCCFLAGS=""-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build059125969=/tmp/go-build -gno-record-gcc-switches""
+</pre></details>
+
+### What did you do?
+
+This is somewhat similar to #36661
+
+We have just added a new `govim` test that seeks to verify diagnostics are as expected where initially empty `.go` files exist on disk, but changes to populate those files are then made (but not saved) within the editor.
+
+Like #36661, the scenario involves creating a package p with a simple function DoIt. p is imported by a main package. p also has a test file that exercises DoIt, and an external test file that does the same.
+
+Initially all call sites for DoIt incorrectly pass an integer argument, meaning we should have error diagnostics for all call sites. Then we correct the definition of DoIt to take an integer argument at which point all diagnostics should disappear.
+
+The test can be seen here: 
+
+https://github.com/govim/govim/blob/cmd_govim_add_tests_where_files_initially_empty/cmd/govim/testdata/scenario_default/quickfix_empty_files.txt
+
+### What did you expect to see?
+
+The diagnostic error:
+
+```
+cannot convert 5 (untyped int constant) to string
+```
+
+for each of the files `main.go`, `p/x_test.go` and `p/p_test.go` 
+
+### What did you see instead?
+
+Random results
+
+* Sometimes we are missing any diagnostics for `main.go`
+* Sometimes we get `package p; expected p_test` for `p/p.go`
+* Sometimes we get `""could not import mod.com/p (no parsed files for package mod.com/p, expected: [], errors: [], list errors: [-: p/p.go:1:1: expected 'package', found 'EOF'])` for `p/x_test.go`
+
+One such `gopls` log file: 
+[gopls.log](https://github.com/golang/go/files/4117331/gopls.log)
+
+Tentatively marking as `v0.3.0`
+
+---
+
+cc @stamblerre
+
+FYI @leitzler
+"
+https://github.com/golang/go/issues/36772,golang/go,x/tools/gopls: format_on_save_new_file (govim) test flaky,2020-01-28T22:02:58Z,"<!-- Please answer these questions before submitting your issue. Thanks! -->
+
+### What version of Go are you using (`go version`)?
+
+<pre>
+$ go version
+go version devel +73d213708e Sat Jan 25 16:34:18 2020 +0000 linux/amd64
+$ go list -m golang.org/x/tools
+golang.org/x/tools v0.0.0-20200124220429-8fe064f891f2
+$ go list -m golang.org/x/tools/gopls
+golang.org/x/tools/gopls v0.1.8-0.20200124220429-8fe064f891f2
+</pre>
+
+### Does this issue reproduce with the latest release?
+
+Yes
+
+### What operating system and processor architecture are you using (`go env`)?
+
+<details><summary><code>go env</code> Output</summary><br><pre>
+$ go env
+GO111MODULE=""on""
+GOARCH=""amd64""
+GOBIN=""""
+GOCACHE=""/home/myitcv/.cache/go-build""
+GOENV=""/home/myitcv/.config/go/env""
+GOEXE=""""
+GOFLAGS=""""
+GOHOSTARCH=""amd64""
+GOHOSTOS=""linux""
+GOINSECURE=""""
+GONOPROXY=""""
+GONOSUMDB=""""
+GOOS=""linux""
+GOPATH=""/home/myitcv/gostuff""
+GOPRIVATE=""""
+GOPROXY=""https://proxy.golang.org,direct""
+GOROOT=""/home/myitcv/gos""
+GOSUMDB=""sum.golang.org""
+GOTMPDIR=""""
+GOTOOLDIR=""/home/myitcv/gos/pkg/tool/linux_amd64""
+GCCGO=""gccgo""
+AR=""ar""
+CC=""gcc""
+CXX=""g++""
+CGO_ENABLED=""1""
+GOMOD=""/home/myitcv/gostuff/src/github.com/myitcv/govim/go.mod""
+CGO_CFLAGS=""-g -O2""
+CGO_CPPFLAGS=""""
+CGO_CXXFLAGS=""-g -O2""
+CGO_FFLAGS=""-g -O2""
+CGO_LDFLAGS=""-g -O2""
+PKG_CONFIG=""pkg-config""
+GOGCCFLAGS=""-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build728174989=/tmp/go-build -gno-record-gcc-switches""
+</pre></details>
+
+### What did you do?
+
+As a follow up to https://github.com/golang/go/issues/34103#issuecomment-577463068, we are seeing some errors being logged by `gopls` when we are not expecting any.
+
+As background, in https://github.com/govim/govim/pull/661 we are looking to enable an automatic check at the end of each integration test, a check that asserts we have received no errors/warnings from `gopls` (this check will not be in place for tests where we are expecting errors/warnings).
+
+For example we have a test that ensures `CodeAction` and `Formatting` work on a buffer that does not yet exist on disk.
+
+In the test we sometimes see the following error message:
+
+```
+[Trace - 02:34:55.311 AM] Received notification 'window/logMessage'.
+Params: {""type"":1,""message"":""2020/01/26 02:34:55 diagnose: could not generate diagnostics for package: no parsed files for package command-line-arguments, expected: [/artefacts/govim/cmd/govim/scenario_default/script-format_on_save_new_file/main.go], errors: [successfully parsed but no token.File for file:///artefacts/govim/cmd/govim/scenario_default/script-format_on_save_new_file/main.go (/artefacts/govim/cmd/govim/scenario_default/script-format_on_save_new_file/main.go:1:2: expected ';', found 'EOF' (and 2 more errors))], list errors: []\n\tpackage = command-line-arguments""}
+```
+
+The `gopls` log file for this test run is: [gopls.log](https://github.com/golang/go/files/4113123/gopls.log)
+
+It is true that no files exist, but this test is run within the context of a main module.
+
+### What did you expect to see?
+
+No errors logged.
+
+### What did you see instead?
+
+As above.
+
+Tentatively marking as `v0.3.0`. I will also add further instances of logged errors as CI finds them.
+
+---
+
+cc @stamblerre
+
+FYI @leitzler
+"
+https://github.com/golang/go/issues/36671,golang/go,x/tools/gopls: scenario_completeunimported/complete_new_file (govim) test flaky,2020-01-28T22:02:57Z,"<!-- Please answer these questions before submitting your issue. Thanks! -->
+
+### What version of Go are you using (`go version`)?
+
+<pre>
+$ go version
+go version devel +8e0be05ec7 Sun Jan 19 14:04:09 2020 +0000 linux/amd64
+$ go list -m golang.org/x/tools
+golang.org/x/tools v0.0.0-20200117220505-0cba7a3a9ee9 => github.com/myitcvforks/tools v0.0.0-20200119092928-0fd5434cd1ba
+$ go list -m golang.org/x/tools/gopls
+golang.org/x/tools/gopls v0.1.8-0.20200117220505-0cba7a3a9ee9 => github.com/myitcvforks/tools/gopls v0.0.0-20200119092928-0fd5434cd1ba
+</pre>
+
+Note that per https://github.com/govim/govim/commit/c7a6cc371a422fa87adcbd422320a9955187ca4d, `github.com/myitcvforks/tools/gopls@v0.0.0-20200119092928-0fd5434cd1ba` is 0cba7a3a with a partial revert of CL214586 on top (the result of which can be seen in https://go-review.googlesource.com/c/tools/+/215239)
+
+The issue described below also exists when tested against 0cba7a3a.
+
+### Does this issue reproduce with the latest release?
+
+Yes
+
+### What operating system and processor architecture are you using (`go env`)?
+
+<details><summary><code>go env</code> Output</summary><br><pre>
+$ go env
+GO111MODULE=""on""
+GOARCH=""amd64""
+GOBIN=""""
+GOCACHE=""/home/myitcv/.cache/go-build""
+GOENV=""/home/myitcv/.config/go/env""
+GOEXE=""""
+GOFLAGS=""""
+GOHOSTARCH=""amd64""
+GOHOSTOS=""linux""
+GOINSECURE=""""
+GONOPROXY=""""
+GONOSUMDB=""""
+GOOS=""linux""
+GOPATH=""/home/myitcv/gostuff""
+GOPRIVATE=""""
+GOPROXY=""https://proxy.golang.org,direct""
+GOROOT=""/home/myitcv/gos""
+GOSUMDB=""sum.golang.org""
+GOTMPDIR=""""
+GOTOOLDIR=""/home/myitcv/gos/pkg/tool/linux_amd64""
+GCCGO=""gccgo""
+AR=""ar""
+CC=""gcc""
+CXX=""g++""
+CGO_ENABLED=""1""
+GOMOD=""/home/myitcv/gostuff/src/github.com/myitcv/govim/go.mod""
+CGO_CFLAGS=""-g -O2""
+CGO_CPPFLAGS=""""
+CGO_CXXFLAGS=""-g -O2""
+CGO_FFLAGS=""-g -O2""
+CGO_LDFLAGS=""-g -O2""
+PKG_CONFIG=""pkg-config""
+GOGCCFLAGS=""-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build573600991=/tmp/go-build -gno-record-gcc-switches""
+</pre></details>
+
+### What did you do?
+
+As part of https://github.com/govim/govim/pull/699 we are adding some tests that verify `gopls` behaviour with files that are not saved on disk.
+
+One of these tests is for unimported completions. 
+
+The sequence is:
+
+* create a new buffer (which does not exist on disk)
+* populate buffer with the following contents:
+
+```
+package main
+
+func main() {
+
+}
+```
+
+Attempt a completion on line 4 with `fmt.Pr` 
+
+### What did you expect to see?
+
+Expected candidates to include `fmt.Println`
+
+### What did you see instead?
+
+No completion candidates.
+
+`gopls` log file: [gopls.log](https://github.com/golang/go/files/4091129/gopls.log)
+
+---
+
+cc @stamblerre @muirdm @heschik 
+
+FYI @leitzler
+"
+https://github.com/golang/go/issues/36664,golang/go,cmd/go: flaky TestScript/test_regexps failure,2020-01-23T18:03:39Z,"Noticed in a trybot run, sandwiched between a bunch of commits in which the test passed.
+
+https://storage.googleapis.com/go-build-log/254cd30d/openbsd-amd64-64_892a8698.log
+
+```
+--- FAIL: TestScript (0.00s)
+    --- FAIL: TestScript/test_regexps (1.68s)
+        script_test.go:193: 
+            # Test the following:
+            #	TestX is run, twice (0.001s)
+            #	TestX/Y is run, twice (0.001s)
+            #	TestXX is run, twice (0.000s)
+            #	TestZ is not run (0.000s)
+            #	BenchmarkX is run but only with N=1, once (0.000s)
+            #	BenchmarkXX is run but only with N=1, once (0.000s)
+            #	BenchmarkX/Y is run in full, twice (0.001s)
+            > stdout -count=2 '    BenchmarkX/Y: x_test.go:15: LOG: Y running N=1\n    BenchmarkX/Y: x_test.go:15: LOG: Y running N=100\n    BenchmarkX/Y: x_test.go:15: LOG: Y running N=10000\n    BenchmarkX/Y: x_test.go:15: LOG: Y running N=1000000\n    BenchmarkX/Y: x_test.go:15: LOG: Y running N=100000000\n    BenchmarkX/Y: x_test.go:15: LOG: Y running N=1000000000'
+            FAIL: testdata/script/test_regexps.txt:29: have 1 matches for `(?m)    BenchmarkX/Y: x_test.go:15: LOG: Y running N=1\n    BenchmarkX/Y: x_test.go:15: LOG: Y running N=100\n    BenchmarkX/Y: x_test.go:15: LOG: Y running N=10000\n    BenchmarkX/Y: x_test.go:15: LOG: Y running N=1000000\n    BenchmarkX/Y: x_test.go:15: LOG: Y running N=100000000\n    BenchmarkX/Y: x_test.go:15: LOG: Y running N=1000000000`, want 2
+            
+FAIL
+```
+
+cc @bcmills 
+"
+https://github.com/golang/go/issues/36661,golang/go,x/tools/gopls: quickfix_new_files (govim) test flaky,2020-01-29T00:20:44Z,"<!-- Please answer these questions before submitting your issue. Thanks! -->
+
+### What version of Go are you using (`go version`)?
+
+<pre>
+$ go version
+go version devel +8e0be05ec7 Sun Jan 19 14:04:09 2020 +0000 linux/amd64
+$ go list -m golang.org/x/tools
+golang.org/x/tools v0.0.0-20200117220505-0cba7a3a9ee9 => github.com/myitcvforks/tools v0.0.0-20200119092928-0fd5434cd1ba
+$ go list -m golang.org/x/tools/gopls
+golang.org/x/tools/gopls v0.1.8-0.20200117220505-0cba7a3a9ee9 => github.com/myitcvforks/tools/gopls v0.0.0-20200119092928-0fd5434cd1ba
+</pre>
+
+Note that per https://github.com/govim/govim/commit/c7a6cc371a422fa87adcbd422320a9955187ca4d, `github.com/myitcvforks/tools/gopls@v0.0.0-20200119092928-0fd5434cd1ba` is 0cba7a3a with a partial revert of CL214586 on top (the result of which can be seen in https://go-review.googlesource.com/c/tools/+/215239)
+
+The issue described below also exists when tested against 0cba7a3a.
+
+### Does this issue reproduce with the latest release?
+
+Yes.
+
+### What operating system and processor architecture are you using (`go env`)?
+
+<details><summary><code>go env</code> Output</summary><br><pre>
+$ go env
+GO111MODULE=""on""
+GOARCH=""amd64""
+GOBIN=""""
+GOCACHE=""/home/myitcv/.cache/go-build""
+GOENV=""/home/myitcv/.config/go/env""
+GOEXE=""""
+GOFLAGS=""""
+GOHOSTARCH=""amd64""
+GOHOSTOS=""linux""
+GOINSECURE=""""
+GONOPROXY=""""
+GONOSUMDB=""""
+GOOS=""linux""
+GOPATH=""/home/myitcv/gostuff""
+GOPRIVATE=""""
+GOPROXY=""https://proxy.golang.org,direct""
+GOROOT=""/home/myitcv/gos""
+GOSUMDB=""sum.golang.org""
+GOTMPDIR=""""
+GOTOOLDIR=""/home/myitcv/gos/pkg/tool/linux_amd64""
+GCCGO=""gccgo""
+AR=""ar""
+CC=""gcc""
+CXX=""g++""
+CGO_ENABLED=""1""
+GOMOD=""/home/myitcv/gostuff/src/github.com/myitcv/govim/go.mod""
+CGO_CFLAGS=""-g -O2""
+CGO_CPPFLAGS=""""
+CGO_CXXFLAGS=""-g -O2""
+CGO_FFLAGS=""-g -O2""
+CGO_LDFLAGS=""-g -O2""
+PKG_CONFIG=""pkg-config""
+GOGCCFLAGS=""-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build026758154=/tmp/go-build -gno-record-gcc-switches""
+</pre></details>
+
+### What did you do?
+
+We have just added a new `govim` test that seeks to verify diagnostics are as expected for new files that do not, initially, exist on disk.
+
+The scenario involves creating a package p with a simple function DoIt. p is imported by a main package. p also has a test file that exercises DoIt, and an external test file that does the same.
+
+Initially all call sites for DoIt incorrectly pass an integer argument, meaning we should have error diagnostics for all call sites. Then we correct the definition of DoIt to take an integer argument at which point all diagnostics should disappear.
+
+The test can be seen here: 
+
+https://github.com/govim/govim/blob/cmd_govim_testscript_new_files_quickfix/cmd/govim/testdata/scenario_default/quickfix_new_files.txt
+
+### What did you expect to see?
+
+1. Error diagnostics for `main.go`, `p/p_test.go`, and `p/x_test.go` once the files have been created.
+2. And then no diagnostics once we fix the definition of `DoIt`.
+
+### What did you see instead?
+
+1. No error diagnostics
+2. Because we don't get the right error diagnostic state, the test stops so we can't verify this check
+
+Marking as `v0.3.0` because this is a fairly fundamental test case.
+
+---
+
+cc @stamblerre
+
+FYI @leitzler
+"
+https://github.com/golang/go/issues/35275,golang/go,os: Test*EOF flaky,2019-11-06T05:16:15Z,"`darwin-amd64-10_14` (https://build.golang.org/log/e527731127351d19a8868d360bd6b534590f69f0):
+```
+--- FAIL: TestFifoEOF (60.05s)
+    fifo_test.go:100: line 0
+    fifo_test.go:100: line 1
+    fifo_test.go:100: line 2
+    fifo_test.go:108: timed out waiting for read
+    fifo_test.go:86: error closing reader: close /var/folders/9w/4l2_g3kx01x199n37fbmv3s80000gn/T/workdir-host-darwin-10_14/tmp/TestFifoEOF585114092/fifo: file already closed
+FAIL
+FAIL	os	60.911s
+```
+
+May relate to #25877 (CC @ianlancetaylor)."
+https://github.com/golang/go/issues/34446,golang/go,"net: host string comparison in TestLookupGmailNS is case-sensitive, causes flaky test",2019-09-23T17:10:09Z,"<!-- Please answer these questions before submitting your issue. Thanks! -->
+
+### What version of Go are you using (`go version`)?
+
+<pre>
+$ go version
+go version devel +ecc7dd5469 Sat Sep 21 16:31:44 2019 +0000 linux/amd64
+</pre>
+
+### Does this issue reproduce with the latest release?
+yes
+
+### What operating system and processor architecture are you using (`go env`)?
+
+<details><summary><code>go env</code> Output</summary><br><pre>
+$ go env
+GO111MODULE=""on""
+GOARCH=""amd64""
+GOBIN=""/home/acln/bin""
+GOCACHE=""/home/acln/.cache/go-build""
+GOENV=""/home/acln/.config/go/env""
+GOEXE=""""
+GOFLAGS=""""
+GOHOSTARCH=""amd64""
+GOHOSTOS=""linux""
+GONOPROXY=""""
+GONOSUMDB=""""
+GOOS=""linux""
+GOPATH=""/home/acln/src/gopath""
+GOPRIVATE=""""
+GOPROXY=""https://proxy.golang.org""
+GOROOT=""/home/acln/src/go/go""
+GOSUMDB=""sum.golang.org""
+GOTMPDIR=""""
+GOTOOLDIR=""/home/acln/src/go/go/pkg/tool/linux_amd64""
+GCCGO=""gccgo""
+AR=""ar""
+CC=""gcc""
+CXX=""g++""
+CGO_ENABLED=""1""
+GOMOD=""/home/acln/src/go/go/src/go.mod""
+CGO_CFLAGS=""-g -O2""
+CGO_CPPFLAGS=""""
+CGO_CXXFLAGS=""-g -O2""
+CGO_FFLAGS=""-g -O2""
+CGO_LDFLAGS=""-g -O2""
+PKG_CONFIG=""pkg-config""
+GOGCCFLAGS=""-fPIC -m64 -pthread -fmessage-length=0 -fdebug-prefix-map=/tmp/go-build058559209=/tmp/go-build -gno-record-gcc-switches""
+</pre></details>
+
+### What did you do?
+I ran `$ go test -run TestLookup` in the `net` package.
+
+### What did you expect to see?
+I expected the test to pass consistently.
+
+### What did you see instead?
+The test passes sometimes, but also fails like so:
+```
+: forge:net ; /home/acln/src/go/go/bin/go test -run TestLookup
+--- FAIL: TestLookupGmailNS (0.01s)
+    lookup_test.go:197: got &{ns1.google.COm.}; want a record containing google.com.
+    lookup_test.go:197: got &{ns2.google.COm.}; want a record containing google.com.
+    lookup_test.go:197: got &{ns3.google.COm.}; want a record containing google.com.
+    lookup_test.go:197: got &{ns4.google.COm.}; want a record containing google.com.
+```
+or even
+```
+: forge:net ; /home/acln/src/go/go/bin/go test -run TestLookup
+--- FAIL: TestLookupGmailNS (0.01s)
+    lookup_test.go:197: got &{ns2.google.coM.}; want a record containing google.com.
+    lookup_test.go:197: got &{ns3.google.coM.}; want a record containing google.com.
+    lookup_test.go:197: got &{ns1.google.coM.}; want a record containing google.com.
+    lookup_test.go:197: got &{ns4.google.coM.}; want a record containing google.com.
+    lookup_test.go:197: got &{ns1.google.CoM.}; want a record containing google.com.
+    lookup_test.go:197: got &{ns2.google.CoM.}; want a record containing google.com.
+    lookup_test.go:197: got &{ns3.google.CoM.}; want a record containing google.com.
+    lookup_test.go:197: got &{ns4.google.CoM.}; want a record containing google.com.
+```
+
+This is the behavior I get when I use the default name server from my ISP. With Google (8.8.8.8) or CloudFlare (1.1.1.1) DNS, the test seems to pass without flaking. I am not expert on DNS, but it is my understanding that host names are case-insensitive. Perhaps this test should consider this fact.
+
+If it seems sensible to use case-insensitive string comparison [here](https://github.com/golang/go/blob/ecc7dd546998ad0b68e9055876db1ec82facca4b/src/net/lookup_test.go#L196), I can send a CL.
+
+Interestingly, I couldn't get any other lookup test to fail when using the ISP's name server (which seems to consistently alter the case of the TLD for NS records it returns). I don't know if that is because that name server has a particular quirk, or because NS records are special in some way, or for some other reason that I cannot fathom."
+https://github.com/golang/go/issues/33585,golang/go,net/http: flaky tests on macOS,2020-10-16T19:05:00Z,"<pre>
+$ go version
+go version devel +8b058cfbce Sun Aug 11 15:44:08 2019 +0000 darwin/amd64
+</pre>
+
+<details><summary><code>go env</code> Output</summary><br><pre>
+$ go env
+GO111MODULE=""on""
+GOARCH=""amd64""
+GOBIN=""""
+GOCACHE=""/Users/valsorda/Library/Caches/go-build""
+GOENV=""/Users/valsorda/Library/Application Support/go/env""
+GOEXE=""""
+GOFLAGS=""""
+GOHOSTARCH=""amd64""
+GOHOSTOS=""darwin""
+GONOPROXY=""""
+GONOSUMDB=""""
+GOOS=""darwin""
+GOPATH=""/Users/valsorda""
+GOPRIVATE=""""
+GOPROXY=""https://proxy.golang.org""
+GOROOT=""/Users/valsorda/go""
+GOSUMDB=""sum.golang.org""
+GOTMPDIR=""""
+GOTOOLDIR=""/Users/valsorda/go/pkg/tool/darwin_amd64""
+GCCGO=""gccgo""
+AR=""ar""
+CC=""clang""
+CXX=""clang++""
+CGO_ENABLED=""1""
+GOMOD=""/Users/valsorda/go/src/go.mod""
+CGO_CFLAGS=""-g -O2""
+CGO_CPPFLAGS=""""
+CGO_CXXFLAGS=""-g -O2""
+CGO_FFLAGS=""-g -O2""
+CGO_LDFLAGS=""-g -O2""
+PKG_CONFIG=""pkg-config""
+GOGCCFLAGS=""-fPIC -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmessage-length=0 -fdebug-prefix-map=/var/folders/df/mrk3bfz149n8zb5h5p1vp_1m00hbbm/T/go-build710921669=/tmp/go-build -gno-record-gcc-switches -fno-common""
+</pre></details>
+
+Got a mix of these test failures running `go test -count 100 net/http` on macOS Mojave 10.14.5.
+
+```
+--- FAIL: TestTransportConcurrency (0.11s)
+    transport_test.go:1802: error on req request-363: Get http://127.0.0.1:52910/?echo=request-363: read tcp 127.0.0.1:53104->127.0.0.1:52910: read: connection reset by peer
+--- FAIL: TestTransportConcurrency (0.26s)
+    transport_test.go:1802: error on req request-17: Get http://127.0.0.1:56414/?echo=request-17: read tcp 127.0.0.1:56415->127.0.0.1:56414: read: connection reset by peer
+--- FAIL: TestTransportConcurrency (0.24s)
+    transport_test.go:1802: error on req request-0: Get http://127.0.0.1:55567/?echo=request-0: write tcp 127.0.0.1:55570->127.0.0.1:55567: write: broken pipe
+--- FAIL: TestServerEmptyBodyRace_h1 (0.01s)
+    serve_test.go:4289: Get http://127.0.0.1:60346: read tcp 127.0.0.1:60347->127.0.0.1:60346: read: connection reset by peer
+    serve_test.go:4302: handler ran 19 times; want 20
+--- FAIL: TestTransportDiscardsUnneededConns (0.03s)
+    clientserver_test.go:1003: Get: Get https://127.0.0.1:51848: write tcp 127.0.0.1:51854->127.0.0.1:51848: write: broken pipe
+--- FAIL: TestTransportPersistConnLeak (0.01s)
+    transport_test.go:1579: client fetch error: Get http://127.0.0.1:62971: read tcp 127.0.0.1:62976->127.0.0.1:62971: read: connection reset by peer
+    transport_test.go:1579: client fetch error: Get http://127.0.0.1:62971: read tcp 127.0.0.1:62972->127.0.0.1:62971: read: connection reset by peer
+    transport_test.go:1579: client fetch error: Get http://127.0.0.1:62971: read tcp 127.0.0.1:62979->127.0.0.1:62971: read: connection reset by peer
+    transport_test.go:1579: client fetch error: Get http://127.0.0.1:62971: read tcp 127.0.0.1:62975->127.0.0.1:62971: read: connection reset by peer
+    transport_test.go:1579: client fetch error: Get http://127.0.0.1:62971: read tcp 127.0.0.1:62974->127.0.0.1:62971: read: connection reset by peer
+    transport_test.go:1579: client fetch error: Get http://127.0.0.1:62971: read tcp 127.0.0.1:62977->127.0.0.1:62971: read: connection reset by peer
+    transport_test.go:1579: client fetch error: Get http://127.0.0.1:62971: write tcp 127.0.0.1:62988->127.0.0.1:62971: write: broken pipe
+    transport_test.go:1579: client fetch error: Get http://127.0.0.1:62971: read tcp 127.0.0.1:62978->127.0.0.1:62971: read: connection reset by peer
+panic: Fail in goroutine after TestTransportPersistConnLeak has completed
+
+goroutine 6888 [running]:
+testing.(*common).Fail(0xc0000ec400)
+	/Users/valsorda/go/src/testing/testing.go:609 +0x151
+testing.(*common).Errorf(0xc0000ec400, 0x1591950, 0x16, 0xc00028cf98, 0x1, 0x1)
+	/Users/valsorda/go/src/testing/testing.go:704 +0x90
+net/http_test.TestTransportPersistConnLeak.func2(0xc0006148a0, 0xc000232ae0, 0xc000640200, 0xc0000ec400, 0xc000640280)
+	/Users/valsorda/go/src/net/http/transport_test.go:1579 +0xec
+created by net/http_test.TestTransportPersistConnLeak
+	/Users/valsorda/go/src/net/http/transport_test.go:1575 +0x256
+panic: Fail in goroutine after TestTransportPersistConnLeak has completed
+
+goroutine 6867 [running]:
+testing.(*common).Fail(0xc0000ec400)
+	/Users/valsorda/go/src/testing/testing.go:609 +0x151
+testing.(*common).Errorf(0xc0000ec400, 0x1591950, 0x16, 0xc0002e7f98, 0x1, 0x1)
+	/Users/valsorda/go/src/testing/testing.go:704 +0x90
+net/http_test.TestTransportPersistConnLeak.func2(0xc0006148a0, 0xc000232ae0, 0xc000640200, 0xc0000ec400, 0xc000640280)
+	/Users/valsorda/go/src/net/http/transport_test.go:1579 +0xec
+created by net/http_test.TestTransportPersistConnLeak
+	/Users/valsorda/go/src/net/http/transport_test.go:1575 +0x256
+panic: Fail in goroutine after TestTransportPersistConnLeak has completed
+
+goroutine 6880 [running]:
+testing.(*common).Fail(0xc0000ec400)
+	/Users/valsorda/go/src/testing/testing.go:609 +0x151
+testing.(*common).Errorf(0xc0000ec400, 0x1591950, 0x16, 0xc00034af98, 0x1, 0x1)
+	/Users/valsorda/go/src/testing/testing.go:704 +0x90
+net/http_test.TestTransportPersistConnLeak.func2(0xc0006148a0, 0xc000232ae0, 0xc000640200, 0xc0000ec400, 0xc000640280)
+	/Users/valsorda/go/src/net/http/transport_test.go:1579 +0xec
+created by net/http_test.TestTransportPersistConnLeak
+	/Users/valsorda/go/src/net/http/transport_test.go:1575 +0x256
+exit status 2
+```
+
+Seems similar to #18541, which did not have a clear resolution.
+
+/cc @bradfitz "
+https://github.com/golang/go/issues/32794,golang/go,x/tools/gopls: cmd definition tests are flaky,2020-11-03T23:54:31Z,"The `gopls` cmd defintion tests tend to be flaky/inconsistent in some way.
+To reproduce, run `go test ./internal/lsp/cmd -run=TestDefinitionHelpExample -v -count=2`. There should be unexpected errors in the logs.
+They have been temporarily disabled by https://golang.org/cl/183628, but they should be fixed and re-enabled."
+https://github.com/golang/go/issues/31702,golang/go,wasm: cmd/asm test has been flaky on wasm builder,2019-04-30T22:42:13Z,"cmd/asm test has been flaky on wasm builder for a while. For example,
+https://build.golang.org/log/e9777631c449354459ab95a76f8c6e3e0110c468
+https://build.golang.org/log/35784fb64c82e732ef2c02b4596679f8eea429d3
+
+It's mostly assembling for ARM or ARM64. Sometimes it just failed to assemble, and sometimes  it got a lot of wrong output or even junk data.
+
+It doesn't look like a problem of cmd/asm, as it works fine on all the other platforms.
+
+It seems like memory corruption that is Wasm specific, but it looks weird to me that it always happens on cmd/asm, which is by no means special, and is not a very intensive stress test. (For example, it never fails at cmd/compile, which shares a lot of code with cmd/asm.) Maybe something related to the file system, or reading output from child process?
+
+I have not looked into it.
+"
+https://github.com/golang/go/issues/31422,golang/go,sync: Pool tests flaky on arm builders,2019-06-26T19:49:40Z,"Possibly related to #24640.
+
+Samples:
+https://build.golang.org/log/10c155a9635967f5b3006b6a04b6d5442ff9713a:
+```
+--- FAIL: TestPoolDequeue (0.00s)
+    pool_test.go:239: popHead never succeeded
+FAIL
+FAIL	sync	0.864s
+```
+
+https://build.golang.org/log/3fbb17b4083eca9629c97f7b71879c804ecf5d0d and
+https://build.golang.org/log/9f98720ace008f8c98f74c0d14049cb67b3c56f5:
+
+```
+##### sync -cpu=10
+--- FAIL: TestPoolChain (0.00s)
+    pool_test.go:239: popHead never succeeded
+FAIL
+FAIL	sync	0.864s
+```"
+https://github.com/golang/go/issues/31264,golang/go,os/signal: test flaky on darwin,2019-06-30T05:49:34Z,"The `os/signal` test seems to time out fairly frequently on the darwin-amd64-race builder.
+It's not obvious to me whether the test is deadlocked or just slow.
+
+Example: https://build.golang.org/log/7c20aa477d782f38c6184e7f8bce05c9648b57b3
+
+```
+panic: test timed out after 3m0s
+
+goroutine 20 [running]:
+testing.(*M).startAlarm.func1()
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/testing/testing.go:1332 +0x11c
+created by time.goFunc
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/time/sleep.go:169 +0x52
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0000c0000, 0x42154f9, 0x9, 0x421e888, 0x1)
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/testing/testing.go:917 +0x68a
+testing.runTests.func1(0xc0000c0000)
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/testing/testing.go:1157 +0xa7
+testing.tRunner(0xc0000c0000, 0xc000046db0)
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/testing/testing.go:865 +0x163
+testing.runTests(0xc00000e060, 0x435ace0, 0xb, 0xb, 0x0)
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/testing/testing.go:1155 +0x522
+testing.(*M).Run(0xc0000ba000, 0x0)
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/testing/testing.go:1072 +0x2ea
+main.main()
+	_testmain.go:64 +0x21f
+
+goroutine 4 [syscall]:
+os/signal.signal_recv(0x4247580)
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/runtime/sigqueue.go:139 +0x9f
+os/signal.loop()
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/os/signal/signal_unix.go:23 +0x30
+created by os/signal.init.0
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/os/signal/signal_unix.go:29 +0x4f
+
+goroutine 10 [runnable]:
+runtime.Gosched(...)
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/runtime/proc.go:266
+os/signal.signalWaitUntilIdle()
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/runtime/sigqueue.go:172 +0x31
+os/signal.Stop(0xc00009c300)
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/os/signal/signal.go:196 +0x2f3
+runtime.Goexit()
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/runtime/panic.go:503 +0xec
+testing.(*common).FailNow(0xc0000c0300)
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/testing/testing.go:609 +0x5b
+testing.(*common).Fatalf(0xc0000c0300, 0x4218523, 0x16, 0xc0000e6d18, 0x1, 0x1)
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/testing/testing.go:672 +0x9f
+os/signal.waitSig(0xc0000c0300, 0xc00009c2a0, 0x4247580, 0x42436a8)
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/os/signal/signal_test.go:32 +0x309
+os/signal.testCancel(0xc0000c0300, 0xc00003b700)
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/os/signal/signal_test.go:133 +0x1f9
+os/signal.TestReset(0xc0000c0300)
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/os/signal/signal_test.go:187 +0x3e
+testing.tRunner(0xc0000c0300, 0x421e888)
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/testing/testing.go:865 +0x163
+created by testing.(*T).Run
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/testing/testing.go:916 +0x652
+
+goroutine 8 [runnable]:
+runtime.Gosched(...)
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/runtime/proc.go:266
+os/signal.signalWaitUntilIdle()
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/runtime/sigqueue.go:172 +0x31
+os/signal.Stop(0xc00009c180)
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/os/signal/signal.go:196 +0x2f3
+os/signal.TestStress.func1(0xc000022480, 0xc0000224e0)
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/os/signal/signal_test.go:92 +0x194
+created by os/signal.TestStress
+	/var/folders/dx/k53rs1s93538b4x20g46cj_w0000gn/T/workdir/go/src/os/signal/signal_test.go:79 +0xe1
+FAIL	os/signal	180.028s
+```"
 https://github.com/golang/go/pull/36733,golang/go,bytes_test: Fix flaky test TestGrow,2020-01-24T14:36:47Z,"fixes #36695
 "
 https://github.com/kubernetes/kubernetes/issues/143238,kubernetes/kubernetes,[Flaking Test] [sig-api-machinery] ci-kubernetes-integration-master.TestOpenAPIV2LazyBuild(k8s.io/kubernetes/test/integration/apiserver.openapi),2026-10-20T19:39:07Z,"### Which jobs are flaking?

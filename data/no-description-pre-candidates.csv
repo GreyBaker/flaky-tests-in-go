@@ -29,15 +29,11 @@ https://github.com/traefik/traefik/issues/1443 ,traefik/traefik,Fix flaky unit t
 https://github.com/syncthing/syncthing/pull/7214 ,syncthing/syncthing,lib/model: Fix flaky test and add some scanning debug,2020-12-20T17:13:36Z
 https://github.com/syncthing/syncthing/pull/5718 ,syncthing/syncthing,lib/model: Fix test flakyness regression (ref #5592),2019-05-18T06:52:51Z
 https://github.com/syncthing/syncthing/issues/5077 ,syncthing/syncthing,TestWatchIgnore is flaky (OpenBSD (-current) Test failed),2019-01-19T07:29:02Z
-https://github.com/syncthing/syncthing/pull/4630 ,syncthing/syncthing,all: Disable a few flaky tests,2018-01-01T15:00:55Z
-https://github.com/syncthing/syncthing/pull/4576 ,syncthing/syncthing,"lib/fs: Prolong test timeout on darwin, hopefully fixing flakyness",2017-12-06T22:07:13Z
-https://github.com/syncthing/syncthing/pull/2896 ,syncthing/syncthing,lib/sync: Skip the timing tests if the host timer is flaky,2016-03-27T10:41:41Z
 https://github.com/rclone/rclone/pull/10144 ,rclone/rclone,lib/transform: fix flaky date test at the end of a minute,2026-10-29T18:33:49Z
 https://github.com/rclone/rclone/pull/8812 ,rclone/rclone,pool: fix flaky unreliability test,2025-09-11T17:09:50Z
 https://github.com/rclone/rclone/issues/6799 ,rclone/rclone,seafile: flaky renew token test,2023-03-02T20:03:26Z
 https://github.com/rclone/rclone/pull/6800 ,rclone/rclone,seafile: fix for flaky tests #6799,2023-03-02T20:03:25Z
 https://github.com/QuantumNous/new-api/pull/7367 ,quantumnous/new-api,test(web): stabilize flaky frontend suite timeouts and motion visibility races,2026-09-14T04:38:20Z
-https://github.com/QuantumNous/new-api/pull/6322 ,quantumnous/new-api,test(channel-affinity): stabilize usage-cache stats tests (flaky on Windows),2026-07-19T20:52:03Z
 https://github.com/prometheus/prometheus/issues/18269 ,prometheus/prometheus,discovery/file: Flaky `TestInvalidFileUpdate`  and `TestUpdateFileWithPartialWrites` tests,2026-08-15T08:04:46Z
 https://github.com/prometheus/prometheus/pull/17966 ,prometheus/prometheus,test: fix flaky TestHeadCompactionWhileScraping,2026-08-06T09:10:46Z
 https://github.com/prometheus/prometheus/issues/17956 ,prometheus/prometheus,test: TestHeadCompactionWhileScraping is flaky,2026-08-05T14:49:22Z
@@ -175,6 +171,8 @@ https://github.com/jesseduffield/lazygit/pull/4432 ,jesseduffield/lazygit,Fix fl
 https://github.com/jesseduffield/lazygit/pull/2550 ,jesseduffield/lazygit,fix flaky tests,2023-04-14T11:15:22Z
 https://github.com/golang/go/issues/70838 ,golang/go,internal/trace: `AllocFree` test flakes,2026-10-29T19:36:16Z
 https://github.com/golang/go/issues/68659 ,golang/go,x/tools/gopls/internal/test/integration/misc: midnight flakes of TestTelemetryPrompt_Response,2026-10-29T19:32:53Z
+https://github.com/golang/go/issues/55253 ,golang/go,"x/build/cmd/watchflakes, x/net/http2: flaky test timeout",2026-10-29T18:11:38Z
+https://github.com/golang/go/issues/55252 ,golang/go,"x/build/cmd/watchflakes, cmd/go: flaky test timeout",2026-10-09T20:26:47Z
 https://github.com/golang/go/issues/79981 ,golang/go,"cmd/go: version blocks for 18m, causing gopls test flake",2026-08-07T18:45:05Z
 https://github.com/golang/go/issues/79962 ,golang/go,x/tools/gopls: test flakes due to SEGV during fork+exec of cmd/go on darwin,2026-07-16T18:14:54Z
 https://github.com/golang/go/issues/77241 ,golang/go,cmd/go: SEGV causes flaky gopls test,2026-07-09T19:33:09Z
@@ -186,14 +184,42 @@ https://github.com/golang/go/issues/71670 ,golang/go,x/tools/gopls/internal/test
 https://github.com/golang/go/issues/71491 ,golang/go,cmd/go: GOFIPS140=v1.0.0 makes tests flaky,2025-01-31T16:51:37Z
 https://github.com/golang/go/issues/55263 ,golang/go,x/build/cloudfns/sendwikidiff: flaky test crash,2024-07-25T18:56:23Z
 https://github.com/golang/go/issues/55262 ,golang/go,x/build/internal/relui/sign: flaky test crash,2024-05-20T00:04:28Z
+https://github.com/golang/go/issues/54654 ,golang/go,x/build/internal/relui/sign: fix flaky TestUpdateSigningStatusError/non-existant_signing_request test,2024-05-20T00:04:27Z
+https://github.com/golang/go/issues/55246 ,golang/go,net/http: flaky test timeout,2024-05-15T22:29:17Z
 https://github.com/golang/go/issues/55258 ,golang/go,misc/cgo/test: flaky test crash,2023-08-23T19:39:17Z
+https://github.com/golang/go/issues/55257 ,golang/go,cmd/compile: internal compiler errors in test flakes,2023-07-25T14:40:09Z
 https://github.com/golang/go/issues/59892 ,golang/go,x/tools/gopls/internal/regtest/misc: flaky test timeouts due to `go version` stuckness on darwin (of course),2023-06-30T16:13:23Z
 https://github.com/golang/go/issues/56035 ,golang/go,x/tools/gopls/test: flakes due to analyzer panics,2022-11-17T18:48:58Z
 https://github.com/golang/go/issues/56118 ,golang/go,net/http: test flake in TestTransportIgnores408/h1,2022-10-18T20:38:39Z
+https://github.com/golang/go/issues/53972 ,golang/go,x/build/internal/relui: buildrelease_test fails with flake on uuid length,2022-09-27T18:46:06Z
 https://github.com/golang/go/issues/55266 ,golang/go,misc/cgo/testsanitizers: flaky tests on ppc64le,2022-09-21T02:23:18Z
+https://github.com/golang/go/issues/55249 ,golang/go,x/tools/internal/lsp/cmd: flaky test timeout,2022-09-20T15:55:46Z
+https://github.com/golang/go/issues/55244 ,golang/go,x/tools/gopls/internal/regtest/diagnostics: flaky test timeout,2022-09-20T15:55:13Z
+https://github.com/golang/go/issues/55247 ,golang/go,x/tools/gopls/internal/regtest/completion: flaky test timeout,2022-09-20T15:55:01Z
 https://github.com/golang/go/issues/55264 ,golang/go,runtime/pprof: flaky test crash,2022-09-20T13:40:08Z
 https://github.com/golang/go/issues/55259 ,golang/go,x/tools/internal/jsonrpc2_v2: flaky test crash,2022-09-20T13:39:33Z
+https://github.com/golang/go/issues/55251 ,golang/go,x/build/internal/relui: flaky test timeout,2022-09-20T12:33:47Z
+https://github.com/golang/go/issues/55245 ,golang/go,crypto/tls: flaky test timeout,2022-09-20T12:32:29Z
+https://github.com/golang/go/issues/54885 ,golang/go,runtime: mayMoreStackPreempt tests flaky after stack frame CLs,2022-09-06T16:08:32Z
+https://github.com/golang/go/issues/44098 ,golang/go,x/tools/gopls/internal/regtest: Test_Issue38211 is flaky,2022-08-04T15:56:16Z
+https://github.com/golang/go/issues/45586 ,golang/go,misc/cgo/test: TestParallelSleep is still flaky,2022-04-21T18:44:44Z
+https://github.com/golang/go/issues/50007 ,golang/go,runtime/pprof: new test TestLabelSystemstack is flaky,2021-12-07T22:34:12Z
+https://github.com/golang/go/issues/49987 ,golang/go,cmd/compile/internal/test: TestIntendedInlining is flaky,2021-12-06T19:24:04Z
+https://github.com/golang/go/issues/48926 ,golang/go,testing: flaky issue where crash written doesn't reproduce an error,2021-10-13T20:52:43Z
+https://github.com/golang/go/issues/32794 ,golang/go,x/tools/gopls: cmd definition tests are flaky,2020-11-03T23:54:31Z
+https://github.com/golang/go/issues/33585 ,golang/go,net/http: flaky tests on macOS,2020-10-16T19:05:00Z
+https://github.com/golang/go/issues/41361 ,golang/go,"cmd/compile,test: issue24491b.go seems flaky on linux-386-sid",2020-09-13T07:55:16Z
+https://github.com/golang/go/issues/36795 ,golang/go,x/tools/gopls: quickfix_empty_files (govim) test flaky,2020-02-19T21:24:44Z
+https://github.com/golang/go/issues/36661 ,golang/go,x/tools/gopls: quickfix_new_files (govim) test flaky,2020-01-29T00:20:44Z
+https://github.com/golang/go/issues/36772 ,golang/go,x/tools/gopls: format_on_save_new_file (govim) test flaky,2020-01-28T22:02:58Z
+https://github.com/golang/go/issues/36671 ,golang/go,x/tools/gopls: scenario_completeunimported/complete_new_file (govim) test flaky,2020-01-28T22:02:57Z
 https://github.com/golang/go/pull/36733 ,golang/go,bytes_test: Fix flaky test TestGrow,2020-01-24T14:36:47Z
+https://github.com/golang/go/issues/36664 ,golang/go,cmd/go: flaky TestScript/test_regexps failure,2020-01-23T18:03:39Z
+https://github.com/golang/go/issues/35275 ,golang/go,os: Test*EOF flaky,2019-11-06T05:16:15Z
+https://github.com/golang/go/issues/34446 ,golang/go,"net: host string comparison in TestLookupGmailNS is case-sensitive, causes flaky test",2019-09-23T17:10:09Z
+https://github.com/golang/go/issues/31264 ,golang/go,os/signal: test flaky on darwin,2019-06-30T05:49:34Z
+https://github.com/golang/go/issues/31422 ,golang/go,sync: Pool tests flaky on arm builders,2019-06-26T19:49:40Z
+https://github.com/golang/go/issues/31702 ,golang/go,wasm: cmd/asm test has been flaky on wasm builder,2019-04-30T22:42:13Z
 https://github.com/gohugoio/hugo/pull/14655 ,gohugoio/hugo,"test: fix flaky ""! WARN"" assertions in parallel tests",2026-03-20T20:37:49Z
 https://github.com/gohugoio/hugo/pull/13468 ,gohugoio/hugo,commands: Skip flaky test on Windows,2025-03-03T11:50:34Z
 https://github.com/gohugoio/hugo/pull/10356 ,gohugoio/hugo,server: Fix flaky TestServerPathEncodingIssues tests,2022-10-04T12:48:29Z
