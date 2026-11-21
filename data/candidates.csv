@@ -34,8 +34,6 @@ moby/moby,Flaky test: TestNetworkDBGarbageCollection,https://github.com/moby/mob
 moby/moby,test: fix flaky TestDiff,https://github.com/moby/moby/pull/53210,https://github.com/moby/moby/issues/42470,2026-09-03T08:50:53Z
 moby/moby,Fix flakiness with NRI integration tests,https://github.com/moby/moby/pull/52589,,2026-05-11T17:01:23Z
 moby/moby,Fix flaky test TestDaemonRestartRestoreBridgeNetwork,https://github.com/moby/moby/pull/50196,https://github.com/moby/moby/issues/50168,2025-06-13T11:21:20Z
-moby/moby,libnetwork/networkdb: fix most flaky loopback tests,https://github.com/moby/moby/pull/49938,https://github.com/moby/moby/issues/42484,2025-05-08T11:33:45Z
-moby/moby,"Increase flaky test sleep, replace deprecated assert",https://github.com/moby/moby/pull/48417,https://github.com/moby/moby/issues/47590,2024-10-22T11:06:52Z
 prometheus/prometheus,discovery/file: Flaky `TestInvalidFileUpdate`  and `TestUpdateFileWithPartialWrites` tests,https://github.com/prometheus/prometheus/pull/19407,https://github.com/prometheus/prometheus/issues/18269,2026-08-15T08:04:46Z
 prometheus/prometheus,test: TestHeadCompactionWhileScraping is flaky,https://github.com/prometheus/prometheus/pull/19192,https://github.com/prometheus/prometheus/issues/17956,2026-08-05T14:49:22Z
 prometheus/prometheus,tsdb: fix flaky TestQuerierShouldNotFailIfOOOCompactionOccurs* tests,https://github.com/prometheus/prometheus/pull/19108,https://github.com/prometheus/prometheus/issues/17941,2026-07-07T06:38:57Z
